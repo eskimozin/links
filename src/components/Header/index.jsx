@@ -6,7 +6,7 @@ function Header() {
 
   return (
     <header>
-      <div>
+      <div className={"gradient-area"}>
         <a
           href="https://www.twitch.tv/eskimozin/"
           rel="noreferrer noopener"

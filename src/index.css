@@ -17,7 +17,7 @@ ul {
 }
 
 body {
-  background-image: url(./img/bg.jpg);
+  background-image: linear-gradient(to bottom, #5226B8, #131216);
   background-position: top center;
   background-size: cover;
   background-repeat: repeat-y;
@@ -106,6 +106,25 @@ p.text-muted, span.text-muted {
 
 .text-always-balance {
   text-wrap: balance;
+}
+
+/* Gradiente usado para as seções e foto no header */
+.gradient-area {
+  background-size: 400% 100% !important;
+  background: var(--gradient-1);
+  animation: gradientAnimation 10s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media screen and (max-width: 500px) {

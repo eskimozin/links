@@ -4,7 +4,8 @@ import './index.css'
 
 function Section({title, legend, className, id}) {
   return (
-    <section>
+    <section className={"d-relative"}>
+      <div className={"d-absolute top-0 gradient-area"}></div>
       <div>
         {["channel-list", "general-list incidente"].includes(className) ?
           <hgroup className={"title-channel-list"}>
