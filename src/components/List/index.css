@@ -56,4 +56,6 @@ section ul li h3.title {
 
 .social-list img, .general-list img {
   width: 2rem;
+  height: 2rem;
+  object-fit: cover;
 }

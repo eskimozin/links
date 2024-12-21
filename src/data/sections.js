@@ -14,7 +14,7 @@ const sections = [
       {
         link: "https://www.instagram.com/eskimozin",
         nick: "@eskimozin",
-        img: "./img/instagram.jpg",
+        img: "./img/instagram.png",
         alt: "Logo do Instagram",
         title: "Instagram"
       },
@@ -89,6 +89,15 @@ const sections = [
         img: "./img/twitch.jpg",
         alt: "Logo da Twitch",
         title: "Twitch"
+      },
+      {
+        order: 4,
+        visible: true,
+        name: "Lil Esk",
+        link: "https://soundcloud.com/littleesk",
+        img: "./img/soundcloud.png",
+        alt: "Logo do Soundcloud",
+        title: "Soundcloud"
       },
     ]
   },
