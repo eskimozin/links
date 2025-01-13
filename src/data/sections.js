@@ -36,7 +36,7 @@ const sections = [
         order: 1,
         name: "cortes de live",
         link: "https://www.youtube.com/@eskimozincraft",
-        img: "https://yt3.googleusercontent.com/e7gO417C3XOj5uOWr1RubdOks4jGoZqPqi0ea8GXmHv7_hUgrWCFkfAeg0h7V-JKbt03dGhV",
+        img: "https://yt3.googleusercontent.com/-jRfuIII78zWbnXqARhnlO2IhY9U3AlJo3DAaDy4GPmCCSbY8Zuep7F8GxmFZUpjA2N46-DSB1M=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Eskimozincraft",
         title: "eskimozincraft"
       },
