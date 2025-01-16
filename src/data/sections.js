@@ -44,7 +44,7 @@ const sections = [
         order: 3,
         name: "eskimozin",
         link: "https://www.youtube.com/@eskimozin",
-        img: "https://yt3.googleusercontent.com/KTB6jr_vvvSlTa-aL5YYNiman1onqw4sxFbmbxsnK78_QSronnhMRuFdA6GRt_ed_jOaZQAJYw",
+        img: "https://yt3.googleusercontent.com/GW4iuXfBbrVkNcpEXnl7XmoX22THiE9OkPFihaT4RHfq8tV8xJ4j8IL7Z4HFRWN-Eau44ILQ=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Eskimozin",
         title: "eskimozin"
       },
