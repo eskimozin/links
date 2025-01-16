@@ -1,5 +1,5 @@
 import {Banner} from "../Banner/index.jsx";
-import {campaings} from "../../data/campaings.js";
+import {campaings} from "../../../public/campaings.js";
 
 const convertDatetime = (datetime) => {
   if (!datetime) return null
