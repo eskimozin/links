@@ -14,6 +14,16 @@ function Banner({title, subtitle, link, legend, linkName}) {
     linkImg = <>&nbsp;<img src={"./img/youtube.jpg"} alt={"Logo do YouTube"} width={"16px"} height={"16px"}/></>
   }
 
+  const renderText = (text) => {
+    // Usa regex para encontrar todas as barras e as envolve em spans
+    return text.split(/(\/)/).map((part, index) => {
+      if (part === "/") {
+        return <span key={index} style={{fontSize: 'inherit', fontFamily: "'Arial', sans-serif"}}>/</span>; // Adiciona uma key para o React
+      }
+      return part;
+    });
+  };
+
   return (
     // Display the banner only when the class "d-none" is not present
     <a href={link}
@@ -24,7 +34,7 @@ function Banner({title, subtitle, link, legend, linkName}) {
       <section className="banner">
         <span className={"badge"}>OUT NOW</span>
         <h2 className={"title mb-0 text-balance"}>{title}</h2>
-        <h2 className={"title mt-1 emphasis fw-bold text-balance"}>{subtitle}</h2>
+        <h2 className={"title mt-1 emphasis fw-bold text-balance"}>{renderText(subtitle)}</h2>
         <p className={"description text-balance"}>
           <span className={"text-muted"}>{legend}</span>{legend ? " " : null}
           <span>{linkName}</span>
