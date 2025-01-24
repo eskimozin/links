@@ -41,7 +41,7 @@ const sections = [
         title: "eskimozincraft"
       },
       {
-        order: 3,
+        order: 4,
         name: "eskimozin",
         link: "https://www.youtube.com/@eskimozin",
         img: "https://yt3.googleusercontent.com/GW4iuXfBbrVkNcpEXnl7XmoX22THiE9OkPFihaT4RHfq8tV8xJ4j8IL7Z4HFRWN-Eau44ILQ=s160-c-k-c0x00ffffff-no-rj",
@@ -49,12 +49,20 @@ const sections = [
         title: "eskimozin"
       },
       {
-        order: 2,
+        order: 3,
         name: "gameplays",
         link: "https://www.youtube.com/@eskimozinplays",
         img: "https://yt3.googleusercontent.com/XcsH6E1sQriC6PKxbotushLRh2d_8suy8rIbBXfpMi8QeTbIsUAeVv7kTkvlkPgP43OA5ponWQ",
         alt: "Foto de perfil do canal Eskimozin Plays",
         title: "eskimozinplays"
+      },
+      {
+        order: 3,
+        name: "jogos com o johan",
+        link: "https://www.youtube.com/@NoitedosJogosTristes",
+        img: "https://yt3.googleusercontent.com/U-tvN2-vtcBGmISLyOH2XdUarkCsieI0ngUQepHTyWW9Mb4rZyfjele6pclGJLy1m_GF0QV59g=s160-c-k-c0x00ffffff-no-rj",
+        alt: "Foto de perfil do canal Noite dos Jogos Tristes",
+        title: "noite dos jogos tristes"
       },
     ]
   },
