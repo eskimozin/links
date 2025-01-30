@@ -52,7 +52,7 @@ const sections = [
         order: 3,
         name: "gameplays",
         link: "https://www.youtube.com/@eskimozinplays",
-        img: "https://yt3.googleusercontent.com/XcsH6E1sQriC6PKxbotushLRh2d_8suy8rIbBXfpMi8QeTbIsUAeVv7kTkvlkPgP43OA5ponWQ",
+        img: "https://yt3.googleusercontent.com/v0NEZh-i_bXAp-2Xp5bmG3oHsbmIYjieLqHSkjID8No_C0h6QNW1D-SvD_2rHrC5e0Ef4UYWdk4=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Eskimozin Plays",
         title: "eskimozinplays"
       },
