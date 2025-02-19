@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Campanhas - Links do Eskimo</title>
+  <link href="./frameworks/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+    }
+
+    input.is-invalid {
+      border-color: #FFA9B1 !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app" class="my-5">
+  <vueapp></vueapp>
+</div>
+
+<script src="./frameworks/vue.global.js"></script>
+<script src="./frameworks/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+<script type="module">
+  import {campaings} from './campaings.js';
+
+  const campaingDefault = [
+    {
+      title: "",
+      subtitle: "",
+      link: "https://twitch.tv/eskimozin",
+      legend: "Acesse agora",
+      linkName: "",
+      datetimeInit: `${new Date().toISOString().split('T')[0]}T00:00`,
+      datetimeFinish: `${new Date().toISOString().split('T')[0]}T23:59`
+    },
+    ...campaings.map((c, i) => {return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};})
+  ]
+
+  const vueapp = {
+    template: `
+      <div class="container">
+        <h1 class="fs-2 fw-medium text-lowercase mb-4" style="letter-spacing: -0.5px">Criar campanhas</h1>
+        <form action="#" method="POST">
+          <div class="mt-2" v-for="(item, index) in items" :key="index">
+            <span v-text="item.recuperate" class="fw-bold d-block"></span>
+            <div class="{{item.class}}">
+              <div class="d-flex gap-2 mb-3">
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="title">Título</label>
+                  <input v-model="item.title" id="title" type="text" class="form-control" placeholder="Título" required
+                         @input="eventListenerInput">
+                </div>
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="subtitle">Subtítulo</label>
+                  <input v-model="item.subtitle" id="subtitle" type="text" class="form-control" placeholder="Subtítulo"
+                         required @input="eventListenerInput">
+                </div>
+              </div>
+              <div class="d-flex gap-2 mb-3">
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="url">URL</label>
+                  <input v-model="item.link" id="url" type="url" class="form-control" placeholder="Link" required
+                         @input="eventListenerInput">
+                </div>
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="linkName">Nome do link</label>
+                  <input v-model="item.linkName" id="linkName" type="text" class="form-control"
+                         placeholder="Nome do link" required @input="eventListenerInput">
+                </div>
+              </div>
+              <div class="d-flex gap-2 mb-3">
+                <div class="form-group w-100">
+                  <label class="form-label mb-1 text-muted" for="legend">Legenda</label>
+                  <input v-model="item.legend" id="legend" type="text" class="form-control" placeholder="Legenda"
+                         required
+                         @input="eventListenerInput">
+                </div>
+              </div>
+              <div class="d-flex gap-2 mb-3">
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="datetimeInit">Data de início</label>
+                  <input v-model="item.datetimeInit" id="datetimeInit" type="datetime-local" class="form-control"
+                         required
+                         @input="eventListenerInput">
+                </div>
+                <div class="form-group w-50">
+                  <label class="form-label mb-1 text-muted" for="datetimeFinish">Data de fim</label>
+                  <input v-model="item.datetimeFinish" id="datetimeFinish" type="datetime-local" class="form-control"
+                         required @input="eventListenerInput">
+                </div>
+              </div>
+              <div class="d-flex gap-2 mb-4">
+                <button @click="removerItem(index)" type="button" class="btn  btn-danger">Remover item</button>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex gap-1">
+            <button @click="adicionarItem" type="button" class="btn btn-primary">Adicionar item</button>
+          </div>
+        </form>
+        <br><br>
+        <pre>
+          const campaings = {{ items }};
+          export { campaings };
+        </pre>
+        <hr>
+        <div id="preview"></div>
+
+        <br>
+        <div class="d-flex gap-2">
+          <button class="btn btn-secondary" @click="copiarItens">Copiar</button>
+          <button class="btn btn-secondary" disabled @click="alert('XXXX')">Visualizar preview (sob implementação)
+          </button>
+        </div>
+      </div>`,
+    data() {
+      return {
+        items: campaingDefault
+      };
+    },
+    methods: {
+      adicionarItem() {
+        this.items.push(Object.assign({}, ...campaingDefault));
+      },
+      removerItem(index) {
+        this.items.splice(index, 1);
+      },
+      copiarItens() {
+        // Verifica se há algum campo vazio
+        const hasEmptyField = this.items.some(item => {
+          if (item.title.trim() === '' || item.subtitle.trim() === '' || item.linkName.trim() === '' || item.legend.trim() === '') {
+            alert('Preencha todos os campos');
+            return true;
+          }
+        });
+
+        // Verifica se as datas de início e fim são válidas, se a data de início é menor que a data de fim e não são iguais
+        const hasInvalidDate = this.items.some(item => {
+          const dateInit = new Date(item.datetimeInit);
+          const dateFinish = new Date(item.datetimeFinish);
+          if (dateInit >= dateFinish) {
+            // Para evitar que dois alertas sejam exibidos
+            if (!hasEmptyField) alert('Data de início deve ser menor que a data de fim');
+            return true;
+          } else if (dateInit === dateFinish) {
+            // Para evitar que dois alertas sejam exibidos
+            if (!hasEmptyField) alert('Data de início não pode ser igual a data de fim');
+            return true;
+          } else if (dateFinish < new Date()) {
+            // Para evitar que dois alertas sejam exibidos
+            // if (!hasEmptyField) alert('Data de fim não pode ser menor que a data atual');
+            // return true;
+          }
+        });
+
+        if (!hasEmptyField && !hasInvalidDate) {
+          navigator.clipboard.writeText(`const campaings = ${JSON.stringify(this.items)};\nexport { campaings };`).then(() => {
+            alert('Copiado!');
+          }).catch((error) => {
+            alert('Erro ao copiar!');
+            console.error('Erro ao copiar: ', error);
+          });
+        }
+      },
+      eventListenerInput(event) {
+        const value = event.target.value.trim();
+        const input = event.target;
+        if (value === '') {
+          input.classList.add('is-invalid');
+        } else {
+          input.classList.remove('is-invalid');
+        }
+      }
+    }
+  }
+
+  const app = Vue.createApp({
+    components: {
+      vueapp
+    }
+  });
+
+  app.mount('#app');
+</script>
+
+</body>
+</html>

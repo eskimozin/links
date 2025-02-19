@@ -1,0 +1,47 @@
+section {
+  color: white;
+  border-color: transparent;
+}
+
+section .gradient-area {
+  padding-top: 7.5px;
+  border-radius: 10px 10px 0 0;
+}
+
+section:nth-child(2) .gradient-area {
+  background: var(--gradient-3);
+}
+
+section:nth-child(3) .gradient-area {
+  background: var(--gradient-2);
+}
+
+section div:last-child {
+  background-color: #2A2634;
+  padding: 32px;
+  padding-top: 24px;
+  border-radius: 0 0 8px 8px;
+}
+
+section div .title-channel-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+section div .title-channel-list .badge-channel-list {
+  width: 2rem;
+}
+
+section h2 {
+  letter-spacing: -0.47px;
+  font-size: 1.65rem;
+  text-transform: lowercase;
+  font-weight: 600;
+  text-align: center;
+}
+
+section p {
+  text-align: center;
+}
