@@ -12,6 +12,8 @@ function App() {
     new bootstrap.Tooltip(document.body, {
       selector: '[data-toggle="tooltip"]',
     });
+    
+    document.querySelectorAll('a').forEach(link => link.setAttribute('rel', 'noopener noreferrer'));
   }, [])
 
   return (
