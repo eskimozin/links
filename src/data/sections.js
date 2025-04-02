@@ -64,6 +64,14 @@ const sections = [
         alt: "Foto de perfil do canal Noite dos Jogos Tristes",
         title: "noite dos jogos tristes"
       },
+      {
+        order: 4,
+        name: "músicas",
+        link: "https://www.youtube.com/@lilesk",
+        img: "https://yt3.googleusercontent.com/v-Q0UZjP-NW9SGoVAJim6uY60Zby_0MKbtZULx_ixzDX_bHRijcq8lfQ6QtyH2hBVBdU5MVUNX8=s160-c-k-c0x00ffffff-no-rj",
+        alt: "Foto de perfil do canal de músicas do eskimo",
+        title: "Lil Esk"
+      },
     ]
   },
   {
