@@ -36,7 +36,7 @@ const sections = [
         order: 1,
         name: "cortes de live",
         link: "https://www.youtube.com/@eskimozincraft",
-        img: "https://yt3.googleusercontent.com/-jRfuIII78zWbnXqARhnlO2IhY9U3AlJo3DAaDy4GPmCCSbY8Zuep7F8GxmFZUpjA2N46-DSB1M=s160-c-k-c0x00ffffff-no-rj",
+        img: "https://yt3.googleusercontent.com/fmt2ghGErP04XGzCJmOLdnQ5S6FBGijwnKqH-nUYfM2BUi9SEzYpRyYU9cUDNJQJ24K78PfKqmE=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Eskimozincraft",
         title: "eskimozincraft"
       },
@@ -52,8 +52,8 @@ const sections = [
         order: 3,
         name: "gameplays",
         link: "https://www.youtube.com/@eskimozinplays",
-        img: "https://yt3.googleusercontent.com/v0NEZh-i_bXAp-2Xp5bmG3oHsbmIYjieLqHSkjID8No_C0h6QNW1D-SvD_2rHrC5e0Ef4UYWdk4=s160-c-k-c0x00ffffff-no-rj",
-        alt: "Foto de perfil do canal Eskimozin Plays",
+        img: "./img/favicon.png",
+        alt: "Foto de perfil do canal Eskimozin Gameplays",
         title: "eskimozinplays"
       },
       {
