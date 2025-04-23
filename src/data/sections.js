@@ -82,7 +82,7 @@ const sections = [
       {
         order: 1,
         visible: true,
-        name: "servidor",
+        name: "iglu",
         link: "https://discord.com/invite/fSzDQkBxcf",
         img: "./img/discord.jpg",
         alt: "Logo do Discord",
@@ -91,6 +91,16 @@ const sections = [
       {
         order: 2,
         visible: true,
+        name: "r/eskimozin",
+        link: "https://www.reddit.com/r/eskimozin/",
+        img: "./img/reddit.png",
+        imgStyle: "rounded-circle",
+        alt: "Logo do Reddit",
+        title: "Reddit"
+      },
+      {
+        order: 3,
+        visible: true,
         name: "Lil Esk",
         link: "https://open.spotify.com/intl-pt/artist/2tEePR3QOQxfvB9Q1ILPp8",
         img: "./img/spotify.png",
@@ -98,7 +108,7 @@ const sections = [
         title: "Spotify"
       },
       {
-        order: 3,
+        order: 4,
         visible: true,
         name: "canal na twitch",
         link: "https://www.twitch.tv/eskimozin/",
@@ -107,7 +117,7 @@ const sections = [
         title: "Twitch"
       },
       {
-        order: 4,
+        order: 5,
         visible: true,
         name: "Lil Esk",
         link: "https://soundcloud.com/littleesk",
