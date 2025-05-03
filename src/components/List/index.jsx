@@ -23,6 +23,7 @@ function List({className, id}) {
                 href={item.link}>
                 <img src={item.img}
                      alt={item.alt}
+                     className={item.imgStyle ? item.imgStyle : ''}
                      loading="lazy"
                 />
               </a>
