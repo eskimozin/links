@@ -28,23 +28,27 @@ const sortedCampaings = (campaings) => {
 
 const Campaings = () => {
   const validCampaings = verifyIsValidCampaings(campaings)
-
+  
   if (validCampaings && validCampaings.length > 0) {
     return (
-      <>
+      <div className={"mt-2 mb-4 d-flex flex-column gap-3"}>
+        <div className={"d-flex align-items-center justify-content-between gap-2 flex-wrap"}>
+          <h2 className={"fs-5 text-white-50 fw-bold text-lowercase mb-0"} style={{fontFamily: "'Inter Tight', 'Inter', sans-serif"}}>campanhas</h2>
+        </div>
         {
           sortedCampaings(validCampaings).map((c, i) => (
-            <Banner
-              key={i}
-              title={c.title}
-              subtitle={c.subtitle}
-              link={c.link}
-              legend={c.legend}
-              linkName={c.linkName}
-            />
+            <div key={i}>
+              <Banner
+                title={c.title}
+                subtitle={c.subtitle}
+                link={c.link}
+                legend={c.legend}
+                linkName={c.linkName}
+              />
+            </div>
           ))
         }
-      </>
+      </div>
     )
   } else {
     return null
