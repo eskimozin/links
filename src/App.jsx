@@ -2,6 +2,7 @@ import {useEffect} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
+import AOS from 'aos';
 
 import {Header} from "./components/Header";
 import {Main} from "./components/Main";
@@ -16,6 +17,10 @@ function App() {
     document.querySelectorAll('a').forEach(link => link.setAttribute('rel', 'noopener noreferrer'));
   }, [])
 
+  useEffect(() => {
+    AOS.init();
+  }, [])
+  
   return (
     <div className="App">
       <Header className="Header"></Header>

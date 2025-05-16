@@ -1,3 +1,5 @@
+@import "aos.css";
+
 :root {
   --gradient-default: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
   --gradient-1: linear-gradient(90deg, #FF8C7A 0%, #61B2FB 50%, #78F878 100%);
@@ -45,7 +47,8 @@ header div {
   animation: fromTop .7s .2s backwards;
 }
 
-main section {
+main section,
+.animate-from-bottom {
   animation: fromBottom .7s backwards;
 }
 
