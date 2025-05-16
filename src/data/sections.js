@@ -153,6 +153,15 @@ const sections = [
       {
         order: 3,
         visible: true,
+        name: "instagram do incidas",
+        link: "https://www.instagram.com/eoincidente",
+        img: "./img/instagram.png",
+        alt: "Logo do Instagram",
+        title: "Instagram"
+      },
+      {
+        order: 4,
+        visible: true,
         name: "incidentando",
         link: "https://www.youtube.com/@incidentando",
         img: "./img/youtube.jpg",
