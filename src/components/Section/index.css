@@ -16,6 +16,18 @@ section:nth-child(3) .gradient-area {
   background: var(--gradient-2);
 }
 
+section:nth-child(4) .gradient-area {
+  background: var(--gradient-1);
+}
+
+section:nth-child(5) .gradient-area {
+  background: var(--gradient-default);
+}
+
+section:nth-child(6) .gradient-area {
+  background: var(--gradient-4);
+}
+
 section div:last-child {
   background-color: #2A2634;
   padding: 32px 32px 32px 24px;

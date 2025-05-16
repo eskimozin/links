@@ -3,6 +3,7 @@
   --gradient-1: linear-gradient(90deg, #FF8C7A 0%, #61B2FB 50%, #78F878 100%);
   --gradient-2: linear-gradient(90deg, #F669B6 0%, #00BFFF 50%, #E69A3F 100%);
   --gradient-3: linear-gradient(90deg, #E36F3F 0%, #A155EF 50%, #C2EAA2 100%);
+  --gradient-4: linear-gradient(90deg, #d6c669 0%, #bb63a2 50%, #83cdd9 100%);
 }
 
 * {
