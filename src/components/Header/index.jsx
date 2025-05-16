@@ -5,7 +5,7 @@ function Header() {
   const { mail } = contacts
 
   return (
-    <header>
+    <header className="animate-from-bottom">
       <div className={"gradient-area"}>
         <a
           href="https://www.twitch.tv/eskimozin/"

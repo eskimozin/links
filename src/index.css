@@ -1,3 +1,5 @@
+@import "aos.css";
+
 :root {
   --gradient-default: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
   --gradient-1: linear-gradient(90deg, #FF8C7A 0%, #61B2FB 50%, #78F878 100%);
@@ -45,8 +47,13 @@ header div {
   animation: fromTop .7s .2s backwards;
 }
 
-main section {
-  animation: fromBottom .7s backwards;
+main section,
+.animate-from-bottom {
+  animation: fromBottom .7s ease forwards;
+}
+
+.animate-hide-to-bottom {
+  animation: hideToBottom .7s ease forwards;
 }
 
 main section:nth-child(1) {
@@ -76,12 +83,24 @@ main section:nth-child(3) {
 @keyframes fromBottom {
   from {
     opacity: 0;
-    transform: translateY(30px)
+    transform: translateY(30px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideToBottom {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(30px);
   }
 }
 

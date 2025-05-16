@@ -4,7 +4,7 @@ import './index.css'
 
 function List({className, id}) {
   const list = !sections[id].listItems[0].order ? sections[id].listItems.filter((e) => e.visible === undefined || e.visible === true).sort((a, b) => a.title ? a.title.localeCompare(b.title) : a.alt.localeCompare(b.alt)) : sections[id].listItems.sort((a, b) => a.order - b.order)
-
+  
   return (
     <ul className={className}>
       {
@@ -20,7 +20,9 @@ function List({className, id}) {
               <a
                 target="_blank"
                 rel="noreferrer noopener"
-                href={item.link}>
+                href={item.link}
+                onClick={(e) => e.stopPropagation()}
+              >
                 <img src={item.img}
                      alt={item.alt}
                      className={item.imgStyle ? item.imgStyle : ''}
@@ -29,7 +31,9 @@ function List({className, id}) {
               </a>
               <a target="_blank"
                  rel="noreferrer noopener"
-                 href={item.link}>
+                 href={item.link}
+                 onClick={(e) => e.stopPropagation()}
+              >
                 {className === "social-list" ? <h3 className={"title"}>{item.nick}</h3> :
                   <h3 className={"title"}>{item.name}</h3>}
               </a>
