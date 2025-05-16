@@ -16,6 +16,7 @@ function Main() {
               title={secao.title}
               legend={secao.legend}
               className={secao.className}
+              link={secao.link}
             />
           )
         })

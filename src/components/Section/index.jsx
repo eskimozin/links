@@ -2,9 +2,13 @@ import PropTypes from 'prop-types';
 import {List} from "../List";
 import './index.css'
 
-function Section({title, legend, className, id}) {
+function Section({title, legend, className, id, link}) {
   return (
-    <section className={"d-relative"}>
+    <section className={"d-relative" + (className.includes("donate-section") ? " donate-section cursor-pointer" : "")}
+             onClick={() => {
+               if (className.includes("donate-section")) window.open(link, "_blank", "noopener noreferrer");
+             }}
+    >
       <div className={"d-absolute top-0 gradient-area"}></div>
       <div>
         {["channel-list", "general-list incidente"].includes(className) ?
@@ -31,6 +35,7 @@ Section.propTypes = {
   title: PropTypes.string,
   id: PropTypes.number,
   legend: PropTypes.string,
+  link: PropTypes.string,
 };
 
 export {Section}

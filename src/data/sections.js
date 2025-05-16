@@ -161,6 +161,23 @@ const sections = [
       },
     ]
   },
+  {
+    title: "apoie mandando din din",
+    legend: "Se puder, mande um donate para o pobrezin. Os donates enviados durante as lives aparecem na transmissão.",
+    className: "general-list donate-section",
+    link: "https://livepix.gg/eskimozin",
+    listItems: [
+      {
+        order: 1,
+        visible: true,
+        name: "live pix",
+        link: "https://livepix.gg/eskimozin",
+        img: "./img/live-pix.png",
+        alt: "Logo do LivePix",
+        title: "Live Pix"
+      },
+    ]
+  },
 ]
 
 export {sections}

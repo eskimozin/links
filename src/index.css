@@ -115,6 +115,10 @@ p.text-muted, span.text-muted {
   animation: gradientAnimation 10s linear infinite;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
