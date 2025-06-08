@@ -109,7 +109,7 @@ const campaings = [
     "class": "d-none"
   }, {
     "title": "Aboba Squad - Incidenters jogam CS",
-    "subtitle": "todas as segundas a partir das 21h nos canais da Twitch",
+    "subtitle": "todas as segundas a partir das 21h nos canais dos Incidenters",
     "link": "https://www.twitch.tv/team/incidente",
     "legend": "Acesse agora",
     "linkName": "Time na Twitch",
