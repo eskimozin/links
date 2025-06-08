@@ -2,6 +2,16 @@ import PropTypes from 'prop-types';
 import {List} from "../List";
 import './index.css'
 
+const renderText = (text) => {
+  // Usa regex para encontrar todas as barras e as envolve em spans
+  return text.split(/(\/)/).map((part, index) => {
+    if (part === "/") {
+      return <span key={index} style={{fontSize: 'inherit', fontFamily: "'Arial', sans-serif"}}>/</span>; // Adiciona uma key para o React
+    }
+    return part;
+  });
+};
+
 function Section({title, legend, className, id, link}) {
   return (
     <section className={"d-relative" + (className.includes("donate-section") ? " donate-section cursor-pointer" : "")}
@@ -19,8 +29,8 @@ function Section({title, legend, className, id, link}) {
             {className === "general-list incidente" ?
               <img src={"./img/oincidente.jpg"} loading="lazy" className={"badge-channel-list"}/> : ""}
           </hgroup> :
-          <h2>{title}</h2>}
-        <p className={"text-muted"}>{legend}</p>
+          <h2>{renderText(title)}</h2>}
+        <p className={"text-muted"}>{renderText(legend)}</p>
         <List
           id={id}
           className={className}
