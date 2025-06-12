@@ -177,7 +177,7 @@ const sections = [
         img: "./img/reddit.png",
         imgStyle: "rounded-circle",
         alt: "Logo do Reddit",
-        title: "r/incidente"
+        title: "Reddit do incidente"
       },
     ]
   },
