@@ -1,5 +1,14 @@
 const campaings = [
   {
+    "title": "Assine o abaixo assinado",
+    "subtitle": "e apoie o futuro da Amazônia",
+    "link": "https://act.gp/4jk1wbS",
+    "legend": "",
+    "linkName": "Para assinar clique aqui",
+    "datetimeInit": "2025-06-12T00:00",
+    "datetimeFinish": "2025-07-31T23:59"
+  },
+  {
     "title": "Baixe e navegue com segurança",
     "subtitle": "com Norton VPN",
     "link": "https://odiencetrck.com/ipa/clk.php?lid=120",
@@ -112,7 +121,7 @@ const campaings = [
     "subtitle": "todas as segundas a partir das 21h nos canais dos Incidenters",
     "link": "https://www.twitch.tv/team/incidente",
     "legend": "Acesse agora",
-    "linkName": "Time na Twitch",
+    "linkName": "o time na Twitch",
     "datetimeInit": "2025-05-26T00:00",
     "datetimeFinish": "2025-06-26T23:59",
     "recuperate": "Campanha recuperada - N.º 11",
