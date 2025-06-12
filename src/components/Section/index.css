@@ -71,7 +71,7 @@ section.donate-section {
     border-radius: 8px;
 
     background: #0699B2;
-    background: radial-gradient(circle at center, #0699B2, #056071);
+    background: radial-gradient(circle at center, #0699B2, #03404a);
     background-size: 100% 100%;
     animation: gradientPulse 2.5s ease-in-out infinite;
     border: 1px solid #FFFFFF25;
