@@ -75,6 +75,7 @@ const sections = [
         name: "Lil Esk",
         link: "https://soundcloud.com/littleesk",
         img: "./img/soundcloud.png",
+        imgStyle: "w-100",
         alt: "Logo do Soundcloud",
         title: "Soundcloud"
       },
@@ -167,6 +168,16 @@ const sections = [
         img: "./img/youtube.jpg",
         alt: "Logo do YouTube",
         title: "YouTube"
+      },
+      {
+        order: 4,
+        visible: true,
+        name: "r/incidente",
+        link: "https://www.reddit.com/r/incidente",
+        img: "./img/reddit.png",
+        imgStyle: "rounded-circle",
+        alt: "Logo do Reddit",
+        title: "r/incidente"
       },
     ]
   },
