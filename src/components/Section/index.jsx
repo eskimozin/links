@@ -20,7 +20,7 @@ function Section({title, legend, className, id, link}) {
              }}
     >
       <div className={"d-absolute top-0 gradient-area"}></div>
-      <div>
+      <div className={"d-flex justify-content-center align-items-center flex-column"}>
         {["channel-list", "general-list incidente"].includes(className) ?
           <hgroup className={"title-channel-list"}>
             <h2>{title}</h2>

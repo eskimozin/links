@@ -1,8 +1,26 @@
 main {
-  max-width: 580px;
+  max-width: calc(580px * 2);
   width: 90%;
   margin: 32px auto;
-  
-  display: grid;
-  gap: 24px;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+main > section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  break-inside: avoid;
+  margin-bottom: 24px;
+}
+
+main > section div:last-child {
+  flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    max-width: 580px;
+    column-count: 1;
+  }
 }

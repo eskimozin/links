@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Banner({title, subtitle, link, legend, linkName}) {
   let linkImg = <></>
-
+  
   if (linkName.toLowerCase().includes("spotify")) {
     linkImg = <>&nbsp;<img src={"./img/spotify.png"} alt={"Logo do Spotify"} width={"16px"} height={"16px"}/></>
   } else if (linkName.toLowerCase().includes("twitch")) {
@@ -13,7 +13,7 @@ function Banner({title, subtitle, link, legend, linkName}) {
   } else if (linkName.toLowerCase().includes("youtube")) {
     linkImg = <>&nbsp;<img src={"./img/youtube.jpg"} alt={"Logo do YouTube"} width={"16px"} height={"16px"}/></>
   }
-
+  
   const renderText = (text) => {
     // Usa regex para encontrar todas as barras e as envolve em spans
     return text.split(/(\/)/).map((part, index) => {
@@ -23,7 +23,7 @@ function Banner({title, subtitle, link, legend, linkName}) {
       return part;
     });
   };
-
+  
   return (
     // Display the banner only when the class "d-none" is not present
     <a href={link}
@@ -32,7 +32,7 @@ function Banner({title, subtitle, link, legend, linkName}) {
        rel="noreferrer noopener"
     >
       <section className="banner">
-        <span className={"badge"}>OUT NOW</span>
+        <div><span className={"badge"}>OUT NOW</span></div>
         <h2 className={"title mb-0 text-balance"}>{title}</h2>
         <h2 className={"title mt-1 emphasis fw-bold text-balance"}>{renderText(subtitle)}</h2>
         <p className={"description text-balance"}>

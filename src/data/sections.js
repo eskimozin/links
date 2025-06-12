@@ -28,53 +28,6 @@ const sections = [
     ]
   },
   {
-    title: "eskimozin no",
-    legend: "Lista de canais",
-    className: "channel-list",
-    listItems: [
-      {
-        order: 1,
-        name: "cortes de live",
-        link: "https://www.youtube.com/@eskimozincraft",
-        img: "https://yt3.googleusercontent.com/fmt2ghGErP04XGzCJmOLdnQ5S6FBGijwnKqH-nUYfM2BUi9SEzYpRyYU9cUDNJQJ24K78PfKqmE=s160-c-k-c0x00ffffff-no-rj",
-        alt: "Foto de perfil do canal Eskimozincraft",
-        title: "eskimozincraft"
-      },
-      {
-        order: 4,
-        name: "eskimozin",
-        link: "https://www.youtube.com/@eskimozin",
-        img: "./img/favicon.png",
-        alt: "Foto de perfil do canal Eskimozin",
-        title: "eskimozin"
-      },
-      {
-        order: 3,
-        name: "gameplays",
-        link: "https://www.youtube.com/@eskimozinplays",
-        img: "./img/favicon.png",
-        alt: "Foto de perfil do canal Eskimozin Gameplays",
-        title: "eskimozinplays"
-      },
-      {
-        order: 3,
-        name: "jogos com o johan",
-        link: "https://www.youtube.com/@NoitedosJogosTristes",
-        img: "https://yt3.googleusercontent.com/U-tvN2-vtcBGmISLyOH2XdUarkCsieI0ngUQepHTyWW9Mb4rZyfjele6pclGJLy1m_GF0QV59g=s160-c-k-c0x00ffffff-no-rj",
-        alt: "Foto de perfil do canal Noite dos Jogos Tristes",
-        title: "noite dos jogos tristes"
-      },
-      {
-        order: 4,
-        name: "músicas",
-        link: "https://www.youtube.com/@lilesk",
-        img: "https://yt3.googleusercontent.com/v-Q0UZjP-NW9SGoVAJim6uY60Zby_0MKbtZULx_ixzDX_bHRijcq8lfQ6QtyH2hBVBdU5MVUNX8=s160-c-k-c0x00ffffff-no-rj",
-        alt: "Foto de perfil do canal de músicas do eskimo",
-        title: "Lil Esk"
-      },
-    ]
-  },
-  {
     title: "comunidade e parceiros",
     legend: "Acompanhe a comunidade e o eskimo em outras plataformas",
     className: "social-list community",
@@ -124,6 +77,53 @@ const sections = [
         img: "./img/soundcloud.png",
         alt: "Logo do Soundcloud",
         title: "Soundcloud"
+      },
+    ]
+  },
+  {
+    title: "eskimozin no",
+    legend: "Lista de canais",
+    className: "channel-list",
+    listItems: [
+      {
+        order: 1,
+        name: "cortes de live",
+        link: "https://www.youtube.com/@eskimozincraft",
+        img: "https://yt3.googleusercontent.com/fmt2ghGErP04XGzCJmOLdnQ5S6FBGijwnKqH-nUYfM2BUi9SEzYpRyYU9cUDNJQJ24K78PfKqmE=s160-c-k-c0x00ffffff-no-rj",
+        alt: "Foto de perfil do canal Eskimozincraft",
+        title: "eskimozincraft"
+      },
+      {
+        order: 4,
+        name: "eskimozin",
+        link: "https://www.youtube.com/@eskimozin",
+        img: "./img/favicon.png",
+        alt: "Foto de perfil do canal Eskimozin",
+        title: "eskimozin"
+      },
+      {
+        order: 3,
+        name: "gameplays",
+        link: "https://www.youtube.com/@eskimozinplays",
+        img: "./img/favicon.png",
+        alt: "Foto de perfil do canal Eskimozin Gameplays",
+        title: "eskimozinplays"
+      },
+      {
+        order: 3,
+        name: "jogos com o johan",
+        link: "https://www.youtube.com/@NoitedosJogosTristes",
+        img: "https://yt3.googleusercontent.com/U-tvN2-vtcBGmISLyOH2XdUarkCsieI0ngUQepHTyWW9Mb4rZyfjele6pclGJLy1m_GF0QV59g=s160-c-k-c0x00ffffff-no-rj",
+        alt: "Foto de perfil do canal Noite dos Jogos Tristes",
+        title: "noite dos jogos tristes"
+      },
+      {
+        order: 4,
+        name: "músicas",
+        link: "https://www.youtube.com/@lilesk",
+        img: "https://yt3.googleusercontent.com/v-Q0UZjP-NW9SGoVAJim6uY60Zby_0MKbtZULx_ixzDX_bHRijcq8lfQ6QtyH2hBVBdU5MVUNX8=s160-c-k-c0x00ffffff-no-rj",
+        alt: "Foto de perfil do canal de músicas do eskimo",
+        title: "Lil Esk"
       },
     ]
   },
@@ -184,6 +184,16 @@ const sections = [
         img: "./img/live-pix.png",
         alt: "Logo do LivePix",
         title: "Live Pix"
+      },
+      {
+        order: 2,
+        visible: true,
+        name: "PayPal",
+        link: "https://streamelements.com/eskimozin/tip",
+        img: "./img/paypal.svg",
+        imgStyle: "w-100",
+        alt: "Logo do Paypal",
+        title: "PayPal"
       },
     ]
   },

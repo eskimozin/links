@@ -38,7 +38,7 @@ const Campaings = () => {
   
   if (validCampaings && validCampaings.length > 0) {
     return (
-      <div className={"mt-2 mb-4 d-flex flex-column gap-3"}>
+      <div className={"mt-2 mb-4 d-flex flex-column gap-3"} id={"first-element-main"}>
         <div className={"d-flex align-items-center justify-content-between gap-2 flex-wrap animate-from-bottom"}>
           <h2 className={"fs-5 text-white-50 fw-bold text-lowercase mb-0"} style={{fontFamily: "'Inter Tight', 'Inter', sans-serif"}}>campanhas</h2>
           <button type={"button"}

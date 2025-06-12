@@ -1,17 +1,22 @@
 :root {
   --width-img-list: 100px;
   --height-img-list: 100px;
+  --width-item-list: 150px;
+  --count-items-max-line: 2;
 }
 
 section ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(var(--count-items-max-line), minmax(var(--width-item-list), 1fr));
+  align-items: center !important;
+  justify-content: center; !important;
+  max-width: calc(var(--count-items-max-line) * 150px);
+  padding: 0;
   gap: 2rem;
 
   margin-top: 24px;
   margin-bottom: 0;
-  padding: 0;
+  box-sizing: border-box;
 }
 
 section a {
@@ -26,6 +31,7 @@ section ul li {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 section ul li:hover {
@@ -58,4 +64,33 @@ section ul li h3.title {
   width: 2rem;
   height: 2rem;
   object-fit: cover;
+}
+
+.donate-section {
+  display: flex;
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --count-items-max-line: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --count-items-max-line: 3;
+  }
+}
+
+@media (max-width: 650px) {
+  :root {
+    --count-items-max-line: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  section ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
