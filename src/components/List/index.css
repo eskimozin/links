@@ -9,7 +9,7 @@ section ul {
   display: grid;
   grid-template-columns: repeat(var(--count-items-max-line), minmax(var(--width-item-list), 1fr));
   align-items: center !important;
-  justify-content: center; !important;
+  justify-content: center;
   max-width: calc(var(--count-items-max-line) * 150px);
   padding: 0;
   gap: 2rem;
