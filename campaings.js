@@ -7,8 +7,15 @@ const campaings = [
     "linkName": "Para assinar clique aqui",
     "datetimeInit": "2025-06-12T00:00",
     "datetimeFinish": "2025-07-31T23:59"
-  },
-  {
+  }, {
+    "title": "Juntando Desconhecidos 2",
+    "subtitle": "evento de dia dos namorados, a partir das 19h",
+    "link": "https://discord.com/invite/fSzDQkBxcf",
+    "legend": "Entre",
+    "linkName": "no nosso discord",
+    "datetimeInit": "2025-06-13T00:00",
+    "datetimeFinish": "2025-06-14T23:59"
+  }, {
     "title": "Baixe e navegue com segurança",
     "subtitle": "com Norton VPN",
     "link": "https://odiencetrck.com/ipa/clk.php?lid=120",
