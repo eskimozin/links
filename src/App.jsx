@@ -14,9 +14,12 @@ function App() {
       selector: '[data-toggle="tooltip"]',
     });
     
-    document.querySelectorAll('a').forEach(link => link.setAttribute('rel', 'noopener noreferrer'));
+    document.querySelectorAll('a').forEach(link => {
+      link.setAttribute('rel', 'noopener noreferrer');
+      link.setAttribute('target', '_blank');
+    });
   }, [])
-
+  
   useEffect(() => {
     AOS.init();
   }, [])
