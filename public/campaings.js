@@ -18,7 +18,7 @@ const campaings = [
     "datetimeFinish": "2025-07-11T18:00"
   },
   {
-    "title": "A subathon está começa NO AR",
+    "title": "A subathon está NO AR",
     "subtitle": "🔥 1 real = 1 min, 1 sub = 7 min, 100 bits = 5 min 🔥",
     "link": "https://www.twitch.tv/eskimozin",
     "legend": "",
