@@ -1,5 +1,32 @@
 const campaings = [
   {
+    "title": "A subathon começa na sexta, 11/07 às 18:00",
+    "subtitle": "🔥 1 real = 1 min, 1 sub = 7 min, 100 bits = 5 min 🔥",
+    "link": "https://www.twitch.tv/eskimozin",
+    "legend": "",
+    "linkName": "Na Twitch",
+    "datetimeInit": "2025-07-07T00:00",
+    "datetimeFinish": "2025-07-11T00:00"
+  },
+  {
+    "title": "A subathon começa HOJE, 11/07 às 18:00",
+    "subtitle": "🔥 1 real = 1 min, 1 sub = 7 min, 100 bits = 5 min 🔥",
+    "link": "https://www.twitch.tv/eskimozin",
+    "legend": "",
+    "linkName": "Na Twitch",
+    "datetimeInit": "2025-07-11T00:01",
+    "datetimeFinish": "2025-07-11T18:00"
+  },
+  {
+    "title": "A subathon está começa NO AR",
+    "subtitle": "🔥 1 real = 1 min, 1 sub = 7 min, 100 bits = 5 min 🔥",
+    "link": "https://www.twitch.tv/eskimozin",
+    "legend": "",
+    "linkName": "Na Twitch",
+    "datetimeInit": "2025-07-11T18:01",
+    "datetimeFinish": "2025-12-31T00:00"
+  },
+  {
     "title": "Assine o abaixo assinado",
     "subtitle": "e apoie o futuro da Amazônia",
     "link": "https://act.gp/4jk1wbS",
