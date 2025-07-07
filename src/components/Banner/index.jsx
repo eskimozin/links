@@ -33,7 +33,7 @@ function Banner({title, subtitle, link, legend, linkName}) {
     >
       <section className="banner">
         <div><span className={"badge"}>OUT NOW</span></div>
-        <h2 className={"title mb-0 text-balance"}>{title}</h2>
+        <h2 className={"title mb-0 text-balance"}>{renderText(title)}</h2>
         <h2 className={"title mt-1 emphasis fw-bold text-balance"}>{renderText(subtitle)}</h2>
         <p className={"description text-balance"}>
           <span className={"text-muted"}>{legend}</span>{legend ? " " : null}
