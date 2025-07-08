@@ -1,8 +1,12 @@
 main {
-  max-width: calc(580px * 2);
-  width: 90%;
+  max-width: calc(580px);
+  padding: 0 1rem;
   margin: 32px auto;
-  column-count: 2;
+  column-count: 1;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
   column-gap: 20px;
 }
 
