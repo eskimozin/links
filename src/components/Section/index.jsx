@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import {List} from "../List";
 import './index.css'
+import {useContext} from "react";
+import {ThemeContext} from "../AppContext/AppContext.jsx";
 
 const renderText = (text) => {
   // Usa regex para encontrar todas as barras e as envolve em spans
@@ -13,6 +15,8 @@ const renderText = (text) => {
 };
 
 function Section({title, legend, className, id, link}) {
+  const {pathname} = useContext(ThemeContext);
+  
   return (
     <section className={"d-relative" + (className.includes("donate-section") ? " donate-section cursor-pointer" : "")}
              onClick={() => {
@@ -24,17 +28,12 @@ function Section({title, legend, className, id, link}) {
         {["channel-list", "general-list incidente"].includes(className) ?
           <hgroup className={"title-channel-list"}>
             <h2>{title}</h2>
-            {className === "channel-list" ?
-              <img src={"./img/youtube.jpg"} loading="lazy" className={"badge-channel-list"}/> : ""}
-            {className === "general-list incidente" ?
-              <img src={"./img/oincidente.jpg"} loading="lazy" className={"badge-channel-list"}/> : ""}
+            {className === "channel-list" && <img src={(pathname ? ".." : ".") + "/img/youtube.jpg"} loading="lazy" className={"badge-channel-list"} alt={"Icon do Youtube"}/>}
+            {className === "general-list incidente" && <img src={(pathname ? ".." : ".") + "/img/oincidente.jpg"} loading="lazy" className={"badge-channel-list"} alt={"Icon do Incidente"}/>}
           </hgroup> :
           <h2>{renderText(title)}</h2>}
         <p className={"text-muted"}>{renderText(legend)}</p>
-        <List
-          id={id}
-          className={className}
-        />
+        <List id={id} className={className}/>
       </div>
     </section>
   )

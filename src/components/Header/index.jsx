@@ -1,9 +1,12 @@
 import './index.css'
-import { contacts } from '../../data/contacts.js'
+import {contacts} from '../../data/contacts.js'
+import {useContext} from "react";
+import {ThemeContext} from "../AppContext/AppContext.jsx";
 
 function Header() {
-  const { mail } = contacts
-
+  const {mail} = contacts;
+  const {pathname} = useContext(ThemeContext);
+  
   return (
     <header className="animate-from-bottom">
       <div className={"gradient-area"}>
@@ -15,7 +18,7 @@ function Header() {
           data-bs-custom-class="custom-tooltip"
           title="Whiskimo na Twitch"
         >
-          <img src="./img/favicon.png" alt="Imagem do Eskimozin" />
+          <img src={pathname ? "../img/favicon.png" : "./img/favicon.png"} alt="Imagem do Eskimozin"/>
         </a>
       </div>
       <h1>Eskimozin</h1>
@@ -24,4 +27,4 @@ function Header() {
   )
 }
 
-export { Header }
+export {Header}

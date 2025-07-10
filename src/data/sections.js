@@ -85,10 +85,11 @@ const sections = [
     title: "eskimozin no",
     legend: "Lista de canais",
     className: "channel-list",
+    type: "youtube",
     listItems: [
       {
         order: 1,
-        name: "cortes de live",
+        name: "eskimozincraft",
         link: "https://www.youtube.com/@eskimozincraft",
         img: "https://yt3.googleusercontent.com/fmt2ghGErP04XGzCJmOLdnQ5S6FBGijwnKqH-nUYfM2BUi9SEzYpRyYU9cUDNJQJ24K78PfKqmE=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Eskimozincraft",
@@ -104,7 +105,7 @@ const sections = [
       },
       {
         order: 3,
-        name: "gameplays",
+        name: "eskimozinplays",
         link: "https://www.youtube.com/@eskimozinplays",
         img: "./img/favicon.png",
         alt: "Foto de perfil do canal Eskimozin Gameplays",
@@ -112,7 +113,7 @@ const sections = [
       },
       {
         order: 3,
-        name: "jogos com o johan",
+        name: "noite dos jogos tristes - com o Johan",
         link: "https://www.youtube.com/@NoitedosJogosTristes",
         img: "https://yt3.googleusercontent.com/U-tvN2-vtcBGmISLyOH2XdUarkCsieI0ngUQepHTyWW9Mb4rZyfjele6pclGJLy1m_GF0QV59g=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal Noite dos Jogos Tristes",
@@ -120,7 +121,7 @@ const sections = [
       },
       {
         order: 4,
-        name: "músicas",
+        name: "lil esk",
         link: "https://www.youtube.com/@lilesk",
         img: "https://yt3.googleusercontent.com/v-Q0UZjP-NW9SGoVAJim6uY60Zby_0MKbtZULx_ixzDX_bHRijcq8lfQ6QtyH2hBVBdU5MVUNX8=s160-c-k-c0x00ffffff-no-rj",
         alt: "Foto de perfil do canal de músicas do eskimo",
