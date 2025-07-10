@@ -6,7 +6,7 @@ import AOS from 'aos';
 
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 import Home from "./pages/Home.jsx";
 import YoutubeChannels from "./pages/YoutubeChannels.jsx";
@@ -55,18 +55,18 @@ function App() {
   
   return (
     <AppContext value={{pathname, setPathname}}>
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <Header className="Header"/>
           <div className="App">
             <Routes>
-              <Route path={`${baseUrl}/`} element={<Home/>}/>
-              <Route path={`${baseUrl}/youtube`} element={<YoutubeChannels/>}/>
+              <Route path={`/`} element={<Home/>}/>
+              <Route path={`/youtube`} element={<YoutubeChannels/>}/>
             </Routes>
           </div>
           <Footer/>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </AppContext>
   );
 }

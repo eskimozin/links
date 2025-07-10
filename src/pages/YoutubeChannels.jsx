@@ -17,7 +17,7 @@ function YoutubeChannels() {
         className={youtubeSection.className}
         link={youtubeSection.link}
       />
-      <Link to={`/${baseUrl}/`}><button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button></Link>
+      <Link to={`/`}><button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button></Link>
     </main>
   )
 }
