@@ -1,7 +1,6 @@
 import {sections} from "../data/sections.js";
 import {Section} from "../components/Section/index.jsx";
 import {Link} from "react-router-dom";
-import {baseUrl} from "../data/config.js";
 
 function YoutubeChannels() {
   const youtubeSection = sections.find(s => s.type === "youtube");
