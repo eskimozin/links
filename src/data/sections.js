@@ -209,23 +209,6 @@ const sections = [
       },
     ]
   },
-  {
-    title: "caixa postal",
-    legend: "Envie coisas legais para o eskimo. Não esqueça de anotar na embalagem que você está enviando para o eskimo.",
-    className: "general-list donate-section",
-    link: "https://livepix.gg/eskimozin",
-    listItems: [
-      {
-        order: 1,
-        visible: true,
-        name: "Consulte a agência dos correios mais próxima de você",
-        link: "#",
-        img: "#",
-        alt: "A caixa postal é número XXXXXX, CEP: XXXXX-XXX - São Paulo, SP. ",
-        title: "Consulte a agência dos correios mais próxima de você"
-      },
-    ]
-  },
 ]
 
 export {sections}

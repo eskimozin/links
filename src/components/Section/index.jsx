@@ -14,7 +14,7 @@ const renderText = (text) => {
   });
 };
 
-function Section({title, legend, className, id, link}) {
+function Section({title, legend, className, id, link, children}) {
   const {pathname} = useContext(ThemeContext);
   
   return (
@@ -33,7 +33,8 @@ function Section({title, legend, className, id, link}) {
           </hgroup> :
           <h2>{renderText(title)}</h2>}
         <p className={"text-muted"}>{renderText(legend)}</p>
-        <List id={id} className={className}/>
+        {id >= 0 ? <List id={id} className={className}/> : null}
+        {children && <>{children}</>}
       </div>
     </section>
   )
@@ -45,6 +46,7 @@ Section.propTypes = {
   id: PropTypes.number,
   legend: PropTypes.string,
   link: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export {Section}

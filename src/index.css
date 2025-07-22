@@ -139,6 +139,14 @@ p.text-muted, span.text-muted {
   cursor: pointer;
 }
 
+button[disabled] {
+  cursor: not-allowed;
+}
+
+.text-color-success {
+  color: #8EDDB6;
+}
+
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
