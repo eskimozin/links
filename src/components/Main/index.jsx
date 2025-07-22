@@ -3,6 +3,7 @@ import {sections} from '../../data/sections.js'
 import './index.css'
 import {Campaings} from "../Campaings/index.jsx";
 import {useEffect, useRef, useState} from "react";
+import {postalBox} from "../../data/config.js";
 
 function Main() {
   const [isCopyE, setCopiedE] = useState(false);
@@ -81,29 +82,33 @@ function Main() {
         })
       }
       
-      <Section
-        id={-1}
-        title={"Caixa postal"}
-        legend={"Se você tem ou viu algo legal e quer enviar para o eskimo, mande através da nossa Caixa Postal!"}
-        className={"postal-box"}
-        link={"#"}
-      >
-        <div>
-          <button ref={btnCopyPostalBox} className={"p-0 m-0 border-0"} style={{background: "transparent"}} data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title={"Clique para copiar os dados"} onClick={(e) => handleCopy(e, "A caixa postal está em nome de XXXXXXXX. O número é XXXXXX, CEP: XXXXX-XXX - São Paulo, SP.")}>
-            <p className={"m-0 px-3 py-2 text-balance rounded-0 text-white"} style={{background: "#FFFFFF15", border: "1px dashed #FFFFFF50"}}>
-              <span>A caixa postal está em nome de XXXXXXXX. O número é XXXXXX, CEP: XXXXX-XXX - São Paulo, SP.</span>
-              
-              {
-                isCopyE ? (
-                  <span className={"text-center d-block text-color-success mt-2"} style={{fontSize: "13px"}}>Informações copiadas!</span>
-                ) : (
-                  <span className={"text-center d-block text-white-50 mt-2"} style={{fontSize: "13px"}}>Clique para copiar</span>
-                )
-              }
-            </p>
-          </button>
-        </div>
-      </Section>
+      {
+        postalBox && (
+          <Section
+            id={-1}
+            title={"Caixa postal"}
+            legend={"Se você tem ou viu algo legal e quer enviar para o eskimo, mande através da nossa Caixa Postal!"}
+            className={"postal-box"}
+            link={"#"}
+          >
+            <div>
+              <button ref={btnCopyPostalBox} className={"p-0 m-0 border-0"} style={{background: "transparent"}} data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title={"Clique para copiar os dados"} onClick={(e) => handleCopy(e, "A caixa postal está em nome de XXXXXXXX. O número é XXXXXX, CEP: XXXXX-XXX - São Paulo, SP.")}>
+                <p className={"m-0 px-3 py-2 text-balance rounded-0 text-white"} style={{background: "#FFFFFF15", border: "1px dashed #FFFFFF50"}}>
+                  <span>A caixa postal está em nome de XXXXXXXX. O número é XXXXXX, CEP: XXXXX-XXX - São Paulo, SP.</span>
+                  
+                  {
+                    isCopyE ? (
+                      <span className={"text-center d-block text-color-success mt-2"} style={{fontSize: "13px"}}>Informações copiadas!</span>
+                    ) : (
+                      <span className={"text-center d-block text-white-50 mt-2"} style={{fontSize: "13px"}}>Clique na caixa para copiar</span>
+                    )
+                  }
+                </p>
+              </button>
+            </div>
+          </Section>
+        )
+      }
     </main>
   )
 }
