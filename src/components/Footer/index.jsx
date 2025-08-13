@@ -7,7 +7,7 @@ function Footer () {
       <footer className={"footer"}>
         <p className={"text text-muted text-always-balance"}>
           <span className={"fw-light"} style={{...styles}}>Se algum link estiver desatualizado, avise os mods.</span><br/>
-          <a href={"https://github.com/gabriersdev"} className={"text-decoration-none fw-light"} style={{...styles, color: "inherit"}}>Feito com 💖 pelo Gabriel.</a>
+          <a href={"https://github.com/gabriersdev"} className={"fw-light"} style={{...styles, color: "inherit"}}>Feito com 💖 pelo Gabriel.</a>
         </p>
       </footer>
     );
