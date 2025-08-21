@@ -30,7 +30,7 @@ function App() {
   
   useEffect(() => {
     AOS.init();
-  }, [])
+  }, []);
   
   useEffect(() => {
     const targetNode = document.body;
@@ -52,6 +52,10 @@ function App() {
     return () => {
       observer.disconnect();
     }
+  }, []);
+  
+  useEffect(() => {
+    document.querySelector(".overlay-appx").style.display = "none";
   }, []);
   
   return (
