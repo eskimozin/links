@@ -8,6 +8,11 @@
     --gradient-4: linear-gradient(90deg, #d6c669 0%, #bb63a2 50%, #83cdd9 100%);
 }
 
+@font-face {
+    font-family: Arial;
+    src: url("/fonts/Arial.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
