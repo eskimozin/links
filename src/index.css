@@ -172,3 +172,7 @@ button[disabled] {
         text-wrap: initial;
     }
 }
+
+.font-inter {
+    font-family: 'Inter', sans-serif !important;
+}
