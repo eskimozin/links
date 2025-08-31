@@ -180,16 +180,6 @@ const sections = [
         alt: "Logo do Reddit",
         title: "Reddit do incidente"
       },
-			{
-        order: 5,
-        visible: true,
-        name: "team no wplace",
-        link: "https://wplace.live/join?id=019848de-0938-7d61-a1e1-c17d107d6540",
-        img: "./img/wplace.png",
-        imgStyle: "rounded-circle",
-        alt: "Logo do Wplace",
-        title: "Team no wplace"
-      },
     ]
   },
   {
