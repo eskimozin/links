@@ -16,10 +16,10 @@ const renderText = (text) => {
 
 function Section({title, legend, className, id, link, children}) {
   const {pathname} = useContext(ThemeContext);
-  const aditionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
+  const additionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
   
   return (
-    <section className={"d-relative" + aditionalClassName}
+    <section className={"d-relative" + additionalClassName}
              role={(className.includes("donate-section") || className.includes("kick-section")) ? "link" : "listitem"}
              onClick={() => {
                if (className.includes("donate-section") || className.includes("kick-section")) window.open(link, "_blank", "noopener noreferrer");
