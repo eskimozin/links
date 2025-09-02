@@ -68,7 +68,12 @@ function Main() {
     <main>
       <Campaings key={"campaing"}/>
       {
-        sections.map(function (secao, index) {
+        [...sections.sort((a, b) => {
+          const titleMatch = "lives na kick";
+          if (a.title === titleMatch && b.title !== titleMatch) return -1; // a vem primeiro
+          if (a.title !== titleMatch && b.title === titleMatch) return 1;  // b vem primeiro
+          return 0;
+        })].map(function (secao, index) {
           return (
             <Section
               id={index}

@@ -16,11 +16,13 @@ const renderText = (text) => {
 
 function Section({title, legend, className, id, link, children}) {
   const {pathname} = useContext(ThemeContext);
+  const aditionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
   
   return (
-    <section className={"d-relative" + (className.includes("donate-section") ? " donate-section cursor-pointer" : "")}
+    <section className={"d-relative" + aditionalClassName}
+             role={(className.includes("donate-section") || className.includes("kick-section")) ? "link" : "listitem"}
              onClick={() => {
-               if (className.includes("donate-section")) window.open(link, "_blank", "noopener noreferrer");
+               if (className.includes("donate-section") || className.includes("kick-section")) window.open(link, "_blank", "noopener noreferrer");
              }}
     >
       <div className={"d-absolute top-0 gradient-area"}></div>
@@ -32,7 +34,7 @@ function Section({title, legend, className, id, link, children}) {
             {className === "general-list incidente" && <img src={(pathname ? ".." : ".") + "/img/oincidente.jpg"} loading="lazy" className={"badge-channel-list"} alt={"Icon do Incidente"}/>}
           </hgroup> :
           <h2>{renderText(title)}</h2>}
-        <p className={"text-muted"}>{renderText(legend)}</p>
+        <p className={"text-muted text-balance"}>{renderText(legend)}</p>
         {id >= 0 ? <List id={id} className={className}/> : null}
         {children && <>{children}</>}
       </div>
