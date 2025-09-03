@@ -221,7 +221,7 @@ const sections = [
   },
   {
     title: "lives na kick",
-    legend: "Em breve, as lives serão multistream: na Twitch e na Kick. Siga o eskimo lá e fique ligado!",
+    legend: "Em breve, lives na Kick. Siga o eskimo lá e fique ligado!",
     className: "general-list kick-section",
     link: "https://kick.com/eskimozin",
     listItems: [
