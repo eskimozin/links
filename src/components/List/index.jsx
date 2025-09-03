@@ -1,6 +1,6 @@
 import ProtoTypes from 'prop-types';
 import {sections as sectionGeneral} from '../../data/sections.js'
-import {sections as multiStreamSections} from '../../data/multi-stream.js'
+import {sections as multiStreamSections} from '../../data/lives.js'
 import './index.css'
 import {useContext} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";

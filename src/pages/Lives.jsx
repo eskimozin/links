@@ -1,8 +1,8 @@
 import {Section} from "../components/Section/index.jsx";
 import {Link} from "react-router-dom";
-import {sections} from "../data/multi-stream.js";
+import {sections} from "../data/lives.js";
 
-function MultiStream() {
+function Lives() {
   const multiStreamSections = [...sections];
 
   if (!multiStreamSections) return null;
@@ -27,4 +27,4 @@ function MultiStream() {
   )
 }
 
-export default MultiStream;
+export default Lives;

@@ -14,7 +14,7 @@ import Loading from "./components/Loading/Loading.jsx";
 
 import Home from "./pages/Home.jsx";
 import YoutubeChannels from "./pages/YoutubeChannels.jsx";
-import MultiStream from "./pages/MultiStream.jsx";
+import Lives from "./pages/Lives.jsx";
 
 
 function App() {
@@ -72,7 +72,7 @@ function App() {
             <Routes>
               <Route path={`/`} element={<Home/>}/>
               <Route path={`/youtube`} element={<YoutubeChannels/>}/>
-              <Route path={`/multi`} element={<MultiStream/>}/>
+              <Route path={`/lives`} element={<Lives/>}/>
             </Routes>
             <Footer/>
           </div>
