@@ -19,6 +19,10 @@ section ul {
   box-sizing: border-box;
 }
 
+.page-lives section  ul {
+    display: flex;
+}
+
 section a {
   text-decoration: none;
   color: #F7F7F7;

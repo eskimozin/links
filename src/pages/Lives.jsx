@@ -8,7 +8,7 @@ function Lives() {
   if (!multiStreamSections) return null;
   
   return (
-    <main>
+    <main className={"page-lives"}>
       {
         multiStreamSections.map((section, index) => (
           <Section
