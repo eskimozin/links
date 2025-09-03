@@ -72,6 +72,16 @@ const sections = [
       {
         order: 5,
         visible: true,
+        name: "canal na chute",
+        link: "https://kick.com/eskimozin",
+        img: "./img/kick.svg",
+        imgStyle: "w-100",
+        alt: "Logo da Kick",
+        title: "Kick"
+      },
+      {
+        order: 6,
+        visible: true,
         name: "Lil Esk",
         link: "https://soundcloud.com/littleesk",
         img: "./img/soundcloud.png",
