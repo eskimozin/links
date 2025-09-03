@@ -14,7 +14,7 @@ const renderText = (text) => {
   });
 };
 
-function Section({title, legend, className, id, link, children}) {
+function Section({title, legend, className, id, link, children, sectionListType = ""}) {
   const {pathname} = useContext(ThemeContext);
   const additionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
   
@@ -35,7 +35,7 @@ function Section({title, legend, className, id, link, children}) {
           </hgroup> :
           <h2>{renderText(title)}</h2>}
         <p className={"text-muted text-balance"}>{renderText(legend)}</p>
-        {id >= 0 ? <List id={id} className={className}/> : null}
+        {id >= 0 ? <List id={id} className={className} type={sectionListType}/> : null}
         {children && <>{children}</>}
       </div>
     </section>
@@ -49,6 +49,7 @@ Section.propTypes = {
   legend: PropTypes.string,
   link: PropTypes.string,
   children: PropTypes.node,
+  sectionListType: PropTypes.string,
 };
 
 export {Section}

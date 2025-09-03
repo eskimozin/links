@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: Arial;
-    src: url("/fonts/Arial.ttf");
+    src: url("/fonts/Arial.ttf") format("truetype");
 }
 
 * {
@@ -122,7 +122,7 @@ main section:nth-child(3) {
 }
 
 p.text-muted, span.text-muted {
-    letter-spacing: 0px;
+    letter-spacing: 0.25px;
     color: #FFF8 !important;
     font-size: 1rem;
     font-family: 'Inter Tight', 'Inter', sans-serif;

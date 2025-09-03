@@ -1,18 +1,21 @@
 import {Suspense, useEffect, useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {baseUrl} from "./data/config.js";
+
 import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {AppContext} from "./components/AppContext/AppContext.jsx";
+import Loading from "./components/Loading/Loading.jsx";
 
 import Home from "./pages/Home.jsx";
 import YoutubeChannels from "./pages/YoutubeChannels.jsx";
-import {baseUrl} from "./data/config.js";
-import {AppContext} from "./components/AppContext/AppContext.jsx";
-import Loading from "./components/Loading/Loading.jsx";
+import MultiStream from "./pages/MultiStream.jsx";
+
 
 function App() {
   const [pathname, setPathname] = useState("");
@@ -69,6 +72,7 @@ function App() {
             <Routes>
               <Route path={`/`} element={<Home/>}/>
               <Route path={`/youtube`} element={<YoutubeChannels/>}/>
+              <Route path={`/multi`} element={<MultiStream/>}/>
             </Routes>
             <Footer/>
           </div>

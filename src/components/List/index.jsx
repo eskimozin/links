@@ -1,5 +1,6 @@
 import ProtoTypes from 'prop-types';
-import {sections} from '../../data/sections.js'
+import {sections as sectionGeneral} from '../../data/sections.js'
+import {sections as multiStreamSections} from '../../data/multi-stream.js'
 import './index.css'
 import {useContext} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
@@ -14,9 +15,11 @@ const renderText = (text) => {
   });
 };
 
-function List({className, id}) {
-  const list = !sections[id].listItems[0].order ? sections[id].listItems.filter((e) => e.visible === undefined || e.visible === true).sort((a, b) => a.title ? a.title.localeCompare(b.title) : a.alt.localeCompare(b.alt)) : sections[id].listItems.sort((a, b) => a.order - b.order)
+function List({className, id, type}) {
   const {pathname} = useContext(ThemeContext);
+  
+  const sections = type === "ms" ? multiStreamSections : sectionGeneral;
+  const list = !sections[id].listItems[0].order ? sections[id].listItems.filter((e) => e.visible === undefined || e.visible === true).sort((a, b) => a.title ? a.title.localeCompare(b.title) : a.alt.localeCompare(b.alt)) : sections[id].listItems.sort((a, b) => a.order - b.order)
   
   return (
     <ul className={className}>
@@ -40,7 +43,8 @@ function List({className, id}) {
 
 List.propTypes = {
   className: ProtoTypes.string,
-  id: ProtoTypes.number
+  id: ProtoTypes.number,
+  type: ProtoTypes.string,
 }
 
 export {List}
