@@ -1,7 +1,7 @@
 const sections = [
   {
     title: "Onde as lives acontecem?",
-    legend: "Atualmente, apenas na Twitch. Mas em breve, também vai ter live na Kick.",
+    legend: "Na Twitch e na Kick. Não é multistream. Entre no nosso Discord e fique ligado!",
     className: "general-list",
     link: "https://kick.com/eskimozin",
     img: "./img/kick.svg",
