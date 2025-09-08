@@ -47,7 +47,10 @@ function Lives() {
   };
   
   // Lógica de Validação
-  const handleCaptchaSubmit = () => {
+  const handleCaptchaSubmit = (e) => {
+    e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+    
     // Calcula a resposta correta
     const correctAnswer = operator === 'soma' ? num1 + num2 : num1 * num2;
     
@@ -117,7 +120,7 @@ function Lives() {
                   </div>
                 </Button>
                 <Button as={Link} to="/" variant="dark" tabIndex={-1} className={"py-0 px-2 m-0 bg-transparent border-0"}>Sair</Button>
-                <Button variant="dark" className={"bg-theme border-0 text-dark fw-bold"} onClick={handleCaptchaSubmit}>
+                <Button variant="dark" type={"submit"} className={"bg-theme border-0 text-dark fw-bold"}>
                   Confirmar!
                 </Button>
               </Modal.Footer>
