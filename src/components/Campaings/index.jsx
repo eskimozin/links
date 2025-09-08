@@ -40,7 +40,17 @@ const Campaings = () => {
     return (
       <div className={"mt-2 mb-4 d-flex flex-column gap-3"} id={"first-element-main"}>
         <div className={"d-flex align-items-center justify-content-between gap-2 flex-wrap animate-from-bottom"}>
-          <h2 className={"fs-5 text-white-50 fw-bold text-lowercase mb-0"} style={{fontFamily: "'Inter Tight', 'Inter', sans-serif"}}>campanhas</h2>
+          <div>
+            <h2 className={"fs-5 text-white-50 fw-bold text-lowercase mb-0"} style={{fontFamily: "'Inter Tight', 'Inter', sans-serif"}}>campanhas</h2>
+            <div className={"animate-from-bottom text-white-50 pt-1"}>
+              {!show && (
+                <div>
+                  <span>As campanhas estão ocultas.</span>{" "}
+                  <button onClick={() => setShow(true)} className={"p-0 m-0 border-0 lh-sm bg-transparent text-white"} style={{textDecoration: "underline"}}>Exibir</button>
+                </div>
+              )}
+            </div>
+          </div>
           <button type={"button"}
                   onClick={() => setShow(!show)}
                   className={"btn btn-sm border-0 p-0 pe-1"}
