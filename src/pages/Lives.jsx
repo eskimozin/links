@@ -103,7 +103,7 @@ function Lives() {
                 />
               </Modal.Body>
               
-              <Modal.Footer className={"bg-dark border-0 rounded-bottom-3 d-flex gap-1 flex-wrap"}>
+              <Modal.Footer className={"bg-dark border-0 rounded-bottom-3 d-flex gap-2 flex-wrap"}>
                 <Button variant="dark" tabIndex={-1} className={"py-0 px-2 m-0 bg-transparent border-0"} onClick={() => {
                   generateNewCaptcha();
                   focusInputRef();
