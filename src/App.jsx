@@ -70,6 +70,7 @@ function App() {
           <div className="App">
             <Header className="Header"/>
             <Routes>
+              <Route path={`*`} element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
               <Route path={`/`} element={<Home/>}/>
               <Route path={`/youtube`} element={<YoutubeChannels/>}/>
               <Route path={`/lives`} element={<Lives/>}/>
