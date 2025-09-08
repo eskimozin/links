@@ -157,13 +157,13 @@ button[disabled] {
 
 @keyframes gradientAnimation {
     0% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
     50% {
         background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%;
+        background-position: 0 50%;
     }
 }
 
@@ -175,4 +175,9 @@ button[disabled] {
 
 .font-inter {
     font-family: 'Inter', sans-serif !important;
+}
+
+button.bg-theme {
+    background: var(--gradient-3) !important;
+    background-size: 200% 100% !important;
 }
