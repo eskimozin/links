@@ -1,0 +1,6 @@
+# TODO [Segurança] - tem que verificar o autor da PR. O teste só deve ser feito se o autor for X para que a PR seja aprovada.
+
+name: approve-prs.yml
+on:
+
+jobs:
