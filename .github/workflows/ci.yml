@@ -40,7 +40,7 @@ jobs:
       # Usamos 'npm ci' em vez de 'npm install' em workflows de CI.
       # É mais rápido e seguro, pois instala exatamente as versões do package-lock.json.
       - name: Instalar dependências
-        run: npm ci:test
+        run: npm run ci:test
 
       # 4. Rodar o build do projeto (opcional)
       # O '--if-present' faz com que o comando só rode se o script "build" existir no seu package.json.
@@ -51,4 +51,4 @@ jobs:
       # 5. Rodar os testes
       # Este é o passo mais importante. Ele executa o script "test" do seu package.json.
       - name: Rodar testes
-        run: npm test
+        run: npm run test
