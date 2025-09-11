@@ -17,6 +17,10 @@ jobs:
     # A máquina virtual que será usada. 'ubuntu-latest' é uma boa escolha padrão.
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+
     # Os passos (steps) que compõem o job
     steps:
       # 1. Checkout do código: Baixa o código do seu repositório para a máquina virtual.
@@ -73,4 +77,3 @@ jobs:
           labels: |
             dependencies
             automated
-
