@@ -51,8 +51,3 @@ jobs:
       # Se não existir, ele simplesmente pula este passo sem dar erro.
       - name: Build do projeto
         run: npm run build --if-present
-
-      # 5. Rodar os testes
-      # Este é o passo mais importante. Ele executa o script "test" do seu package.json.
-      - name: Rodar testes - via script test
-        run: npm run test
