@@ -36,10 +36,14 @@ jobs:
           # Habilita o cache do npm para acelerar a instalação
           cache: 'npm'
 
+      # Garanta que este passo existe e está ANTES dos testes
+      - name: Instalar dependências
+        run: npm ci
+
       # 3. Instalar dependências
       # Usamos 'npm ci' em vez de 'npm install' em workflows de CI.
       # É mais rápido e seguro, pois instala exatamente as versões do package-lock.json.
-      - name: Instalar dependências
+      - name: Rodar testes
         run: npm run ci:test
 
       # 4. Rodar o build do projeto (opcional)
@@ -50,5 +54,5 @@ jobs:
 
       # 5. Rodar os testes
       # Este é o passo mais importante. Ele executa o script "test" do seu package.json.
-      - name: Rodar testes
+      - name: Rodar testes - via script test
         run: npm run test
