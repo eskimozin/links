@@ -36,16 +36,21 @@ jobs:
       - name: Instalar npm-check-updates
         run: npm install -g npm-check-updates
 
-      # 4. Criar Pull Request: Este passo usa uma action para automatizar a criação do PR.
+      # 4. Atualizar dependências (NOVO PASSO)
+      # Aqui os arquivos package.json e package-lock.json são de fato modificados.
+      - name: Atualizar dependências
+        run: |
+          ncu -u
+          npm install
+
+      # 5. Criar Pull Request: Este passo agora detecta as mudanças do passo anterior.
       - name: Criar Pull Request com as atualizações
         uses: peter-evans/create-pull-request@v6
         with:
           # O GITHUB_TOKEN é um segredo gerado automaticamente pelo GitHub com permissões para o repositório.
           token: ${{ secrets.GITHUB_TOKEN }}
 
-          # Configurações do Commit (MODIFICADO)
-          # Usa o 'actor' do GitHub (quem rodou a action) como autor.
-          # Para schedules, será o bot 'github-actions'.
+          # Configurações do Commit
           commit-message: 'chore: Atualiza dependências NPM'
           author: '${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>'
           committer: '${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>'
@@ -64,14 +69,8 @@ jobs:
           branch: 'chore/daily-dependency-update' # Nome do branch que será criado
           delete-branch: true # Apaga o branch automaticamente após o merge do PR
 
-          # Script de Atualização
-          # 1. `ncu -u`: Atualiza as versões das dependências diretamente no `package.json`.
-          # 2. `npm install`: Atualiza o `package-lock.json` e instala os novos pacotes.
-          update-script: |
-            ncu -u
-            npm install
-
           # Adiciona labels ao PR para facilitar a identificação
           labels: |
             dependencies
             automated
+
