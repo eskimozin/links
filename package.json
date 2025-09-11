@@ -10,7 +10,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint src/**/*.js src/**/*.jsx --fix",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist",
+    "cy:run": "cypress run",
+    "test": "cypress run",
+    "ci:test": "start-server-and-test dev http://localhost:5173 test"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -26,12 +29,14 @@
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^1.3.2",
+    "cypress": "^13.17.0",
     "eslint": "^9.11.1",
     "eslint-plugin-react": "^7.37.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
+    "start-server-and-test": "^2.1.0",
     "vite": "^6.1.0"
   }
 }

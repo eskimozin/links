@@ -193,6 +193,41 @@ const sections = [
     ]
   },
   {
+    title: "outros links",
+    legend: "outros links",
+    className: "general-list",
+    listItems: [
+      {
+        order: 1,
+        visible: true,
+        name: "steam",
+        link: "https://steamcommunity.com/id/ESKIMOZIN",
+        img: "./img/steam.png",
+        alt: "Logo da Steam",
+        title: "Steam"
+      },
+      {
+        order: 2,
+        visible: true,
+        name: "review de jogos",
+        link: "https://www.backloggd.com/u/eskimozin",
+        img: "./img/back.png",
+        alt: "Logo da Backloggd",
+        title: "Backloggd"
+      },
+      {
+        order: 3,
+        visible: true,
+        name: "twitter dois",
+        link: "https://bsky.app/profile/eskimozin.bsky.social",
+        img: "./img/bsky.png",
+        imgStyle: "w-100",
+        alt: "Logo do Bluesky",
+        title: "Bluesky"
+      },
+    ]
+  },
+  {
     title: "apoie mandando din din",
     legend: "Se puder, mande um donate para o pobrezin. Os donates enviados durante as lives aparecem na transmissão.",
     className: "general-list donate-section",

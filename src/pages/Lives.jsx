@@ -82,7 +82,7 @@ function Lives() {
           className="modal show"
           style={{display: 'block', position: 'initial'}}
         >
-          <Modal show={true} className="modal-dialog border-0 rounded-0" centered>
+          <Modal show={true} className="modal-dialog border-0 rounded-0" centered backdrop="static" keyboard={false}>
             <Modal.Header className={"bg-dark border-0 rounded-top-3 text-white-50"}>
               <Modal.Title className={"fs-3"}>Complete a verificação</Modal.Title>
             </Modal.Header>

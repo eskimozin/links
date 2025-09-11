@@ -1,0 +1,77 @@
+# Nome do Workflow que aparecerá na aba "Actions" do GitHub
+name: Daily Dependency Update
+
+# Define os gatilhos (triggers) que iniciam a execução do workflow
+on:
+  # Permite que você inicie este workflow manualmente pela interface do GitHub
+  workflow_dispatch:
+
+  # Gatilho de agendamento (schedule) para rodar automaticamente
+  schedule:
+    # A sintaxe 'cron' define a frequência. Esta configuração roda todo dia às 5:00 UTC.
+    - cron: '0 5 * * *'
+
+# Define os 'jobs' ou tarefas que o workflow irá executar
+jobs:
+  update-dependencies:
+    # A máquina virtual que será usada. 'ubuntu-latest' é uma boa escolha padrão.
+    runs-on: ubuntu-latest
+
+    # Os passos (steps) que compõem o job
+    steps:
+      # 1. Checkout do código: Baixa o código do seu repositório para a máquina virtual.
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      # 2. Configuração do Node.js: Prepara o ambiente Node.js.
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          # IMPORTANTE: Altere para a versão do Node.js que seu projeto utiliza.
+          node-version: '20'
+          # Habilita o cache do npm para acelerar as instalações futuras.
+          cache: 'npm'
+
+      # 3. Instalar npm-check-updates: Ferramenta que atualiza as versões no package.json.
+      - name: Instalar npm-check-updates
+        run: npm install -g npm-check-updates
+
+      # 4. Criar Pull Request: Este passo usa uma action para automatizar a criação do PR.
+      - name: Criar Pull Request com as atualizações
+        uses: peter-evans/create-pull-request@v6
+        with:
+          # O GITHUB_TOKEN é um segredo gerado automaticamente pelo GitHub com permissões para o repositório.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Configurações do Commit (MODIFICADO)
+          # Usa o 'actor' do GitHub (quem rodou a action) como autor.
+          # Para schedules, será o bot 'github-actions'.
+          commit-message: 'chore: Atualiza dependências NPM'
+          author: '${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>'
+          committer: '${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>'
+
+          # Configurações do Pull Request
+          title: 'chore: Atualização automática de dependências'
+          body: |
+            Este Pull Request foi gerado automaticamente para atualizar as dependências do projeto.
+
+            **Próximos Passos:**
+            1.  Aguarde a conclusão dos testes de CI (GitHub Actions, Vercel, etc.).
+            2.  Revise as mudanças nos arquivos `package.json` e `package-lock.json`.
+            3.  Faça o merge se tudo estiver correto.
+
+          # Configurações do Branch
+          branch: 'chore/daily-dependency-update' # Nome do branch que será criado
+          delete-branch: true # Apaga o branch automaticamente após o merge do PR
+
+          # Script de Atualização
+          # 1. `ncu -u`: Atualiza as versões das dependências diretamente no `package.json`.
+          # 2. `npm install`: Atualiza o `package-lock.json` e instala os novos pacotes.
+          update-script: |
+            ncu -u
+            npm install
+
+          # Adiciona labels ao PR para facilitar a identificação
+          labels: |
+            dependencies
+            automated
