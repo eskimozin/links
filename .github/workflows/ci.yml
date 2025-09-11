@@ -19,7 +19,7 @@ jobs:
 
     # ADIÇÃO: Condição para rodar o job apenas para o Dependabot
     # Se o PR for de qualquer outro usuário, este job será pulado.
-    if: github.actor == 'dependabot[bot]' || github.actor == 'github-actions'
+    if: github.actor == 'dependabot[bot]' || github.actor == 'github-actions' || github.actor == 'gabriersdev'
 
     # Passos da tarefa
     steps:
