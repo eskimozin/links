@@ -72,6 +72,22 @@ function Header() {
         </div>
         <h1>Eskimozin</h1>
         <a href={`mailto:${mail}`} className={"link-style"} rel={"noreferrer noopener"} data-ref={"eskimozin-mail"}>{mail}</a>
+        
+        <article className={"animate-from-bottom"}>
+          <a href={"#"} className={"rounded-pill text-decoration-none text-body mt-3 text-center px-3 py-1 d-inline-flex align-items-center mx-auto"} style={{background: "var(--gradient-5)"}}>
+            <div className={"live-indicator me-1"}>
+              <div className={"live-dot"}></div>
+            </div>
+            <span>Ao vivo na KICK!</span>
+          </a>
+          
+          <br/><a href={"#"} className={"rounded-pill text-decoration-none text-body mt-3 text-center px-3 py-1 d-inline-flex align-items-center mx-auto"} style={{background: "var(--gradient-6)"}}>
+            <div className={"live-indicator me-1"}>
+              <div className={"live-dot"}></div>
+            </div>
+            <span>Ao vivo na TWITCH!</span>
+          </a>
+        </article>
       </header>
     </>
   )
