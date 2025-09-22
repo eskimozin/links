@@ -42,7 +42,8 @@ function Lives() {
   }, []);
   
   useEffect(() => {
-    if (userInput?.length > 0) setMessage("");
+    if (userInput?.trim()?.length > 0) setMessage("");
+    if (userInput?.match(/\D/)) setMessage("Apenas números são aceitos no campo");
   }, [userInput])
   
   const generateNewCaptcha = () => {
@@ -62,6 +63,12 @@ function Lives() {
   const handleCaptchaSubmit = (e) => {
     e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
+    
+    // Se tiver alguma mensagem para o usuário corrigir, não segue com verificação
+    if (message) {
+      setMessage((prevState) => !prevState.includes("Atenção: ") ? "Atenção: " + prevState + "!" : prevState)
+      return
+    }
     
     // Calcula a resposta correta
     const correctAnswer = operator === 'soma' ? num1 + num2 : num1 * num2;
