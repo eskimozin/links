@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'; // Importar o componente Form
 import {sections} from "../data/lives.js";
-import {useState, useEffect, useRef} from "react"; // Importar useEffect
+import {useState, useEffect, useRef,} from "react"; // Importar useEffect
 
 function Lives() {
   const multiStreamSections = [...sections];
@@ -17,21 +17,28 @@ function Lives() {
   const [num2, setNum2] = useState(0);
   const [operator, setOperator] = useState('soma'); // 'soma' ou 'multiplicação'
   const [userInput, setUserInput] = useState(''); // Armazena a resposta do usuário
+  const [userInputIsFocused, setUserInputIsFocused] = useState(false);
+  let render = 0;
   const inputRef = useRef();
   
+  const focusInputRef = () => {
+    if (inputRef.current) inputRef.current?.focus();
+  }
+  
   useEffect(() => {
-    focusInputRef();
-  }, [inputRef]);
+    if (render === 0 && !userInputIsFocused) {
+      setTimeout(() => {
+        focusInputRef();
+      }, 500);
+      render = render += 1;
+    }
+  }, [inputRef])
   
   // Lógica de Randomização
   // Roda apenas uma vez quando o componente é montado
   useEffect(() => {
     generateNewCaptcha();
   }, []);
-  
-  const focusInputRef = () => {
-    if (inputRef.current) inputRef.current?.focus();
-  }
   
   const generateNewCaptcha = () => {
     const newNum1 = Math.floor(Math.random() * 10) + 1; // Número aleatório de 1 a 10
@@ -102,7 +109,10 @@ function Lives() {
                   maxLength={3}
                   autoComplete={"off"}
                   autoFocus={true}
+                  onFocus={() => setUserInputIsFocused(true)}
+                  onBlur={() => setUserInputIsFocused(false)}
                   className={"bg-dark mt-3 text-white border-1 border-secondary"}
+                  inputMode={"numeric"}
                 />
               </Modal.Body>
               
