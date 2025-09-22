@@ -17,6 +17,7 @@ function Lives() {
   const [num2, setNum2] = useState(0);
   const [operator, setOperator] = useState('soma'); // 'soma' ou 'multiplicação'
   const [userInput, setUserInput] = useState(''); // Armazena a resposta do usuário
+  const [message, setMessage] = useState("");
   const inputRef = useRef();
   
   useEffect(() => {
@@ -28,6 +29,10 @@ function Lives() {
   useEffect(() => {
     generateNewCaptcha();
   }, []);
+  
+  useEffect(() => {
+    if (userInput?.length > 0) setMessage("");
+  }, [userInput])
   
   const focusInputRef = () => {
     if (inputRef.current) inputRef.current?.focus();
@@ -58,7 +63,7 @@ function Lives() {
     if (parseInt(userInput) === correctAnswer) {
       setCaptchaComplete(true); // Libera o conteúdo
     } else {
-      alert('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
+      setMessage('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
       setUserInput(''); // Limpa o input
       generateNewCaptcha(); // Gera um novo desafio
     }
@@ -104,6 +109,14 @@ function Lives() {
                   autoFocus={true}
                   className={"bg-dark mt-3 text-white border-1 border-secondary"}
                 />
+                
+                {
+                  message && (
+                    <div className={"alert alert-danger text-danger p-0 bg-dark border-0 mt-2 pt-1"}>
+                      {message}
+                    </div>
+                  )
+                }
               </Modal.Body>
               
               <Modal.Footer className={"bg-dark border-0 rounded-bottom-3 d-flex gap-2 flex-wrap"}>
