@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'; // Importar o componente Form
 import {sections} from "../data/lives.js";
-import {useState, useEffect, useRef,} from "react"; // Importar useEffect
+import {useState, useEffect, useRef} from "react"; // Importar useEffect
 
 function Lives() {
   const multiStreamSections = [...sections];
@@ -17,6 +17,7 @@ function Lives() {
   const [num2, setNum2] = useState(0);
   const [operator, setOperator] = useState('soma'); // 'soma' ou 'multiplicação'
   const [userInput, setUserInput] = useState(''); // Armazena a resposta do usuário
+  const [message, setMessage] = useState("");
   const [userInputIsFocused, setUserInputIsFocused] = useState(false);
   let render = 0;
   const inputRef = useRef();
@@ -39,6 +40,10 @@ function Lives() {
   useEffect(() => {
     generateNewCaptcha();
   }, []);
+  
+  useEffect(() => {
+    if (userInput?.length > 0) setMessage("");
+  }, [userInput])
   
   const generateNewCaptcha = () => {
     const newNum1 = Math.floor(Math.random() * 10) + 1; // Número aleatório de 1 a 10
@@ -65,7 +70,7 @@ function Lives() {
     if (parseInt(userInput) === correctAnswer) {
       setCaptchaComplete(true); // Libera o conteúdo
     } else {
-      alert('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
+      setMessage('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
       setUserInput(''); // Limpa o input
       generateNewCaptcha(); // Gera um novo desafio
     }
@@ -114,6 +119,14 @@ function Lives() {
                   className={"bg-dark mt-3 text-white border-1 border-secondary"}
                   inputMode={"numeric"}
                 />
+                
+                {
+                  message && (
+                    <div className={"alert alert-danger text-danger p-0 bg-dark border-0 mt-2 pt-1"}>
+                      {message}
+                    </div>
+                  )
+                }
               </Modal.Body>
               
               <Modal.Footer className={"bg-dark border-0 rounded-bottom-3 d-flex gap-2 flex-wrap"}>
