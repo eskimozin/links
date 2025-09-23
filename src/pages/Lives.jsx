@@ -18,11 +18,22 @@ function Lives() {
   const [operator, setOperator] = useState('soma'); // 'soma' ou 'multiplicação'
   const [userInput, setUserInput] = useState(''); // Armazena a resposta do usuário
   const [message, setMessage] = useState("");
+  const [userInputIsFocused, setUserInputIsFocused] = useState(false);
+  let render = 0;
   const inputRef = useRef();
   
+  const focusInputRef = () => {
+    if (inputRef.current) inputRef.current?.focus();
+  }
+  
   useEffect(() => {
-    focusInputRef();
-  }, [inputRef]);
+    if (render === 0 && !userInputIsFocused) {
+      setTimeout(() => {
+        focusInputRef();
+      }, 500);
+      render = render += 1;
+    }
+  }, [inputRef])
   
   // Lógica de Randomização
   // Roda apenas uma vez quando o componente é montado
@@ -31,12 +42,9 @@ function Lives() {
   }, []);
   
   useEffect(() => {
-    if (userInput?.length > 0) setMessage("");
+    if (userInput?.trim()?.length > 0) setMessage("");
+    if (userInput?.match(/\D/)) setMessage("Apenas números são aceitos no campo");
   }, [userInput])
-  
-  const focusInputRef = () => {
-    if (inputRef.current) inputRef.current?.focus();
-  }
   
   const generateNewCaptcha = () => {
     const newNum1 = Math.floor(Math.random() * 10) + 1; // Número aleatório de 1 a 10
@@ -55,6 +63,12 @@ function Lives() {
   const handleCaptchaSubmit = (e) => {
     e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
+    
+    // Se tiver alguma mensagem para o usuário corrigir, não segue com verificação
+    if (message) {
+      setMessage((prevState) => !prevState.includes("Atenção: ") ? "Atenção: " + prevState + "!" : prevState)
+      return
+    }
     
     // Calcula a resposta correta
     const correctAnswer = operator === 'soma' ? num1 + num2 : num1 * num2;
@@ -107,7 +121,10 @@ function Lives() {
                   maxLength={3}
                   autoComplete={"off"}
                   autoFocus={true}
+                  onFocus={() => setUserInputIsFocused(true)}
+                  onBlur={() => setUserInputIsFocused(false)}
                   className={"bg-dark mt-3 text-white border-1 border-secondary"}
+                  inputMode={"numeric"}
                 />
                 
                 {

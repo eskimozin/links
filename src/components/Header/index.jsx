@@ -3,6 +3,7 @@ import {contacts} from '../../data/contacts.js'
 import {useContext, useEffect, useState} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
 import {useNavigate, useLocation} from "react-router-dom";
+import LiveBadge from "../LiveBadge/index.jsx";
 
 function Header() {
   const {mail} = contacts;
@@ -72,6 +73,7 @@ function Header() {
         </div>
         <h1>Eskimozin</h1>
         <a href={`mailto:${mail}`} className={"link-style"} rel={"noreferrer noopener"} data-ref={"eskimozin-mail"}>{mail}</a>
+        <LiveBadge/>
       </header>
     </>
   )
