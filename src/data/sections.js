@@ -37,7 +37,8 @@ const sections = [
         visible: true,
         name: "iglu",
         link: "https://discord.com/invite/fSzDQkBxcf",
-        img: "./img/discord.jpg",
+        img: "./img/discord.png",
+        imgStyle: "w-100 rounded-1",
         alt: "Logo do Discord",
         title: "Discord"
       },
@@ -174,8 +175,8 @@ const sections = [
       {
         order: 4,
         visible: true,
-        name: "incidentando",
-        link: "https://www.youtube.com/@incidentando",
+        name: "incidente",
+        link: "https://www.youtube.com/@eoincidente",
         img: "./img/youtube.jpg",
         alt: "Logo do YouTube",
         title: "YouTube"
