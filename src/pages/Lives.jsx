@@ -163,24 +163,33 @@ function Lives() {
   
   // Se o CAPTCHA ESTIVER completo, mostra o conteúdo da página
   return (
-    <main className={"page-lives"}>
-      {
-        multiStreamSections.map((section, index) => (
-          <Section
-            key={index}
-            id={index} // Corrigido para usar o index como ID único
-            title={section.title}
-            legend={section.legend}
-            className={section.className}
-            link={section.link}
-            sectionListType={"ms"}
-          />
-        ))
-      }
-      <Link to={`/`}>
-        <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button>
-      </Link>
-    </main>
+    <>
+      <style>{`
+          ul.general-list {
+            [data-bs-original-title="Twitch"] {
+              opacity: 0.25;
+            }
+          }
+        `}</style>
+      <main className={"page-lives"}>
+        {
+          multiStreamSections.map((section, index) => (
+            <Section
+              key={index}
+              id={index} // Corrigido para usar o index como ID único
+              title={section.title}
+              legend={section.legend}
+              className={section.className}
+              link={section.link}
+              sectionListType={"ms"}
+            />
+          ))
+        }
+        <Link to={`/`}>
+          <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button>
+        </Link>
+      </main>
+    </>
   );
 }
 

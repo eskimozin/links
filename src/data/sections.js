@@ -37,7 +37,8 @@ const sections = [
         visible: true,
         name: "iglu",
         link: "https://discord.com/invite/fSzDQkBxcf",
-        img: "./img/discord.jpg",
+        img: "./img/discord.png",
+        imgStyle: "w-100 rounded-1",
         alt: "Logo do Discord",
         title: "Discord"
       },
