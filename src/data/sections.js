@@ -175,8 +175,8 @@ const sections = [
       {
         order: 4,
         visible: true,
-        name: "incidentando",
-        link: "https://www.youtube.com/@incidentando",
+        name: "incidente",
+        link: "https://www.youtube.com/@eoincidente",
         img: "./img/youtube.jpg",
         alt: "Logo do YouTube",
         title: "YouTube"
