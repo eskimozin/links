@@ -1,30 +1,30 @@
 main {
-  max-width: calc(580px);
-  padding: 0 1rem;
-  margin: 32px auto;
-  column-count: 1;
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  justify-content: center;
-  column-gap: 20px;
+    max-width: calc(580px);
+    padding: 0 1rem;
+    margin: 32px auto;
+    column-count: 1;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: center;
+    column-gap: 20px;
 }
 
 main > section {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  break-inside: avoid;
-  margin-bottom: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    break-inside: avoid;
+    margin-bottom: 24px;
 }
 
 main > section div:last-child {
-  flex: 1;
+    flex: 1;
 }
 
 @media screen and (max-width: 768px) {
-  main {
-    max-width: 580px;
-    column-count: 1;
-  }
+    main {
+        max-width: 580px;
+        column-count: 1;
+    }
 }

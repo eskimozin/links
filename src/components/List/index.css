@@ -21,6 +21,7 @@ section ul {
 
 .page-lives section  ul {
     display: flex;
+    flex-wrap: wrap;
 }
 
 section a {

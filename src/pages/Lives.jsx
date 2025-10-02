@@ -20,7 +20,7 @@ function Lives() {
   const [message, setMessage] = useState("");
   const [userInputIsFocused, setUserInputIsFocused] = useState(false);
   let render = 0;
-  const inputRef = useRef();
+  const inputRef = useRef(<></>);
   
   const focusInputRef = () => {
     if (inputRef.current) inputRef.current?.focus();
@@ -42,8 +42,11 @@ function Lives() {
   }, []);
   
   useEffect(() => {
-    if (userInput?.trim()?.length > 0) setMessage("");
     if (userInput?.match(/\D/)) setMessage("Apenas números são aceitos no campo");
+    if (userInput?.trim()?.length > 0) {
+      verifyCaptcha();
+      setMessage("");
+    }
   }, [userInput])
   
   const generateNewCaptcha = () => {
@@ -63,7 +66,13 @@ function Lives() {
   const handleCaptchaSubmit = (e) => {
     e.preventDefault();
     if (e.stopPropagation) e.stopPropagation();
-    
+    if (!verifyCaptcha()) {
+      setUserInput(''); // Limpa o input
+      generateNewCaptcha(); // Gera um novo desafio
+    }
+  };
+  
+  const verifyCaptcha = () => {
     // Se tiver alguma mensagem para o usuário corrigir, não segue com verificação
     if (message) {
       setMessage((prevState) => !prevState.includes("Atenção: ") ? "Atenção: " + prevState + "!" : prevState)
@@ -76,12 +85,12 @@ function Lives() {
     // Valida o input do usuário (convertendo para número)
     if (parseInt(userInput) === correctAnswer) {
       setCaptchaComplete(true); // Libera o conteúdo
+      return true;
     } else {
       setMessage('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
-      setUserInput(''); // Limpa o input
-      generateNewCaptcha(); // Gera um novo desafio
+      return false;
     }
-  };
+  }
   
   // Define o texto da operação para exibição
   const operatorText = operator === 'soma' ? 'mais' : 'multiplicado por';
@@ -96,12 +105,21 @@ function Lives() {
             border: 0 !important;
             background: unset !important;
           }
+          
+          .modal {
+            top: -150px !important;
+          }
+          
+          .modal-dialog {
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+          }
         `}</style>
         <div
           className="modal show"
           style={{display: 'block', position: 'initial'}}
         >
-          <Modal show={true} className="modal-dialog border-0 rounded-0" centered backdrop="static" keyboard={false}>
+          <Modal show={true} className="modal-dialog my-0 border-0 rounded-0" backdrop="static" keyboard={false}>
             <Modal.Header className={"bg-dark border-0 rounded-top-3 text-white-50"}>
               <Modal.Title className={"fs-3"}>Complete a verificação</Modal.Title>
             </Modal.Header>
@@ -150,13 +168,14 @@ function Lives() {
                   </div>
                 </Button>
                 <Button as={Link} to="/" variant="dark" tabIndex={-1} className={"py-0 px-2 m-0 bg-transparent border-0"}>Sair</Button>
-                <Button variant="dark" type={"submit"} className={"bg-theme border-0 text-dark fw-bold"}>
+                <Button variant="dark" type={"submit"} className={"bg-theme border-0 text-dark"}>
                   Confirmar!
                 </Button>
               </Modal.Footer>
             </form>
           </Modal>
         </div>
+        <main></main>
       </>
     );
   }
@@ -166,6 +185,7 @@ function Lives() {
     <>
       <style>{`
           ul.general-list {
+            [title="Twitch"],
             [data-bs-original-title="Twitch"] {
               opacity: 0.25;
             }
