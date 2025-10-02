@@ -14,8 +14,8 @@ function Header() {
   const [show, setShow] = useState(true);
   
   const control = () => {
-    if (document.querySelector("body").classList.contains("modal-open")) setShow(false);
-    else setShow(true);
+    // if (document.querySelector("body").classList.contains("modal-open")) setShow(false);
+    // else setShow(true);
   }
   
   useEffect(() => {
@@ -35,7 +35,7 @@ function Header() {
       {
         show && (
           <section className={"animate-from-bottom menu d-flex align-items-center justify-content-center position-sticky z-3"} style={{top: "2rem", left: "0"}}>
-            <div className={"mb-5 top-0 d-inline-flex px-4 py-2 rounded-2"} style={{background: "#FFFFFF35", border: "1px solid #FFFFFF25", backdropFilter: "blur(20px)"}}>
+            <div className={"mb-5 top-0 d-inline-flex px-4 py-2 rounded-2"} style={{background: "#FFFFFF35", border: "1px solid #FFFFFF25", backdropFilter: "blur(20px)", width: "320px"}}>
               <ul className={"m-0 p-0 d-flex align-items-center flex-wrap gap-3 gap-md-4"}>
                 {
                   [

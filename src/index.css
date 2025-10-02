@@ -180,6 +180,6 @@ button[disabled] {
 }
 
 button.bg-theme {
-    background: var(--gradient-3) !important;
+    background: var(--gradient-5) !important;
     background-size: 200% 100% !important;
 }
