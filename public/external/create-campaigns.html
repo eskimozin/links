@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Criar Campanhas - Links do Eskimo</title>
-  <link href="./frameworks/bootstrap.min.css" rel="stylesheet"
+  <link href="../frameworks/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-  <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="../img/favicon.png" type="image/png">
   <style>
     * {
       font-family: 'Inter', sans-serif;
@@ -38,12 +38,12 @@
   <vueapp></vueapp>
 </div>
 
-<script src="./frameworks/vue.global.js"></script>
-<script src="./frameworks/bootstrap.bundle.min.js"
+<script src="../frameworks/vue.global.js"></script>
+<script src="../frameworks/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 
 <script type="module">
-  import {campaings} from './campaings.js';
+  import {campaigns} from '../campaings.js';
 
   const campaingDefault = [
     {
@@ -55,7 +55,7 @@
       datetimeInit: `${new Date().toISOString().split('T')[0]}T00:00`,
       datetimeFinish: `${new Date().toISOString().split('T')[0]}T23:59`
     },
-    ...campaings.map((c, i) => {return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};})
+    ...campaigns.map((c, i) => {return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};})
   ]
 
   const vueapp = {

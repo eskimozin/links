@@ -4,7 +4,8 @@ const host = window.location.hostname === "localhost" ? "http://localhost:8001" 
 
 const links = {
   liveKick: "https://kick.com/eskimozin",
-  liveTwitch: "https://www.twitch.tv/eskimozin/"
+  liveTwitch: "https://www.twitch.tv/eskimozin/",
+  base: "/links/",
 }
 
 export {

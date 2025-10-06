@@ -1,5 +1,5 @@
 import {Banner} from "../Banner/index.jsx";
-import {campaings} from "../../../public/campaings.js";
+import {campaigns} from "../../../public/campaings.js";
 import {useEffect, useState} from "react";
 
 const convertDatetime = (datetime) => {
@@ -28,7 +28,7 @@ const sortedCampaings = (campaings) => {
 }
 
 const Campaings = () => {
-  const validCampaings = verifyIsValidCampaings(campaings)
+  const validCampaings = verifyIsValidCampaings(campaigns)
   const [show, setShow] = useState(true)
   const [visible, setVisible] = useState(true)
   
