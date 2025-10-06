@@ -15,6 +15,7 @@ import Loading from "./components/Loading/Loading.jsx";
 import Home from "./pages/Home.jsx";
 import YoutubeChannels from "./pages/YoutubeChannels.jsx";
 import Lives from "./pages/Lives.jsx";
+import ManageCampaigns from "./pages/ManageCampaigns.jsx";
 
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
               <Route path={`/`} element={<Home/>}/>
               <Route path={`/youtube`} element={<YoutubeChannels/>}/>
               <Route path={`/lives`} element={<Lives/>}/>
+              <Route path={`/create-campaigns`} element={<ManageCampaigns/>}/>
             </Routes>
             <Footer/>
           </div>
