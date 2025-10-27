@@ -184,3 +184,8 @@ button.bg-theme {
     background: var(--gradient-5) !important;
     background-size: 200% 100% !important;
 }
+
+.text-sml,
+.text-sml * {
+    font-size: 13px !important;
+}
