@@ -183,14 +183,6 @@ function Lives() {
   // Se o CAPTCHA ESTIVER completo, mostra o conteúdo da página
   return (
     <>
-      <style>{`
-          ul.general-list {
-            [title="Twitch"],
-            [data-bs-original-title="Twitch"] {
-              opacity: 0.25;
-            }
-          }
-        `}</style>
       <main className={"page-lives"}>
         {
           multiStreamSections.map((section, index) => (
