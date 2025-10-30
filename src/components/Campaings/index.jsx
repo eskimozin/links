@@ -1,5 +1,5 @@
 import {Banner} from "../Banner/index.jsx";
-import {campaigns} from "../../../public/campaings.js";
+import {campaigns} from "../../../public/campaigns.js";
 import {useEffect, useState} from "react";
 
 const convertDatetime = (datetime) => {
