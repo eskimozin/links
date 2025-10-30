@@ -43,7 +43,7 @@
         crossorigin="anonymous"></script>
 
 <script type="module">
-  import {campaigns} from '../campaings.js';
+  import {campaigns} from '../campaigns.js';
 
   const campaingDefault = [
     {
@@ -176,7 +176,7 @@
         });
 
         if (!hasEmptyField && !hasInvalidDate) {
-          navigator.clipboard.writeText(`const campaings = ${JSON.stringify(this.items)};\nexport { campaings };`).then(() => {
+          navigator.clipboard.writeText(`const campaigns = ${JSON.stringify(this.items)};\nexport { campaigns };`).then(() => {
             alert('Copiado!');
           }).catch((error) => {
             alert('Erro ao copiar!');
