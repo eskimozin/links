@@ -5,7 +5,7 @@ import path from 'node:path';
 
 // Config
 // Define o nome do arquivo JSON
-const fileName = '/links/info/register.build.json';
+const fileName = '/info/register.build.json';
 
 // Constrói o caminho absoluto para o arquivo de forma segura em ES Modules
 const DIRNAME = path.dirname(fileURLToPath(import.meta.url));
