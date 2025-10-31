@@ -11,8 +11,7 @@ function Footer() {
   const [dataBuild, setDataBuild] = useState({datetimeCreate: null});
   
   useEffect(() => {
-    console.log("oi")
-    fetch((window.location.pathname !== "/" ? "." : "") + "./info/register.build.json").then((response) => {
+    fetch((window.location.pathname !== "/" ? "." : "") + "./links/info/register.build.json").then((response) => {
       response.json().then((data) => {
         setDataBuild({...data});
       });
@@ -23,7 +22,7 @@ function Footer() {
   
   return (
     <footer className={"footer text-center pb-5"}>
-      <p className={"text text-white text-always-balance m-0 p-0"}>
+      <div className={"text text-white text-always-balance m-0 p-0"}>
         <span className={"font-inter"} style={{...styles}}>Se algum link estiver desatualizado, avise os mods.</span><br/>
         <Link to={"https://github.com/gabriersdev"} className={"text-decoration-none d-flex align-items-center justify-content-center gap-1"} style={{...styles, color: "inherit"}}>
           <span>Feito com 💖 pelo Gabriel</span>
@@ -31,9 +30,9 @@ function Footer() {
             <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/>
           </svg>
         </Link>
-      </p>
+      </div>
       
-      <p>
+      <div>
         {
           dataBuild && (
             <div className={"p-0 m-0 fs-inherit text-white text-always-balance text-sml"}>
@@ -45,7 +44,7 @@ function Footer() {
         <Link to={"/create-campaigns"} className={"text-white-50 d-block"}>
           Gerenciamento de campanhas
         </Link>
-      </p>
+      </div>
     </footer>
   );
 }
