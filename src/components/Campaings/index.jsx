@@ -87,7 +87,7 @@ const Campaings = () => {
                     [...sortedCampaings(validCampaings)].map((c, i) => (
                       <>
                         {
-                          (i === 0) && (
+                          ((new Date().getTime() <= new Date('2025-12-10T00:00:00Z').getTime()) && i === 0) && (
                             <Link to={"https://www.youtube.com/playlist?list=PLmuix2GfdrZ471GlANYt0mx-wa5EeDAIw"} target={"_blank"} rel={"noopener noreferrer"} className={"my-3 text-decoration-none"} key={"0!#"}>
                               <div className={"text-white"}>
                                 <Image src={"./img/mentiras-medos-minhocas.jpg"} className={"w-100 rounded-3"} style={{maxHeight: "350px"}} loading={"lazy"} alt={"Capa do álbum 'Mentiras, medos e minhocas do Lil Esk'"}/>
