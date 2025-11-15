@@ -23,21 +23,21 @@
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.3"
+    "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-react": "^5.0.4",
-    "cypress": "^15.3.0",
-    "eslint": "^9.37.0",
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "cypress": "^15.6.0",
+    "eslint": "^9.39.1",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^6.1.1",
-    "eslint-plugin-react-refresh": "^0.4.23",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
     "gh-pages": "^6.3.0",
-    "globals": "^16.4.0",
+    "globals": "^16.5.0",
     "start-server-and-test": "^2.1.2",
-    "vite": "^7.1.9"
+    "vite": "^7.2.2"
   }
 }
