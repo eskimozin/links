@@ -5,18 +5,18 @@ import {baseUrl} from "./data/config.js";
 
 import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
-import {HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes, useLocation} from "react-router-dom";
 
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
-import {AppContext} from "./components/AppContext/AppContext.jsx";
 import Loading from "./components/Loading/Loading.jsx";
+import {AppContext} from "./components/AppContext/AppContext.jsx";
+import BaseComponent from "./components/BaseComponents/BaseComponents.jsx";
 
 import Home from "./pages/Home.jsx";
-import YoutubeChannels from "./pages/YoutubeChannels.jsx";
 import Lives from "./pages/Lives.jsx";
+import YoutubeChannels from "./pages/YoutubeChannels.jsx";
 import ManageCampaigns from "./pages/ManageCampaigns.jsx";
-
 
 function App() {
   const [pathname, setPathname] = useState("");
@@ -30,7 +30,7 @@ function App() {
       link.setAttribute('rel', 'noopener noreferrer');
       link.setAttribute('target', '_blank');
     });
-  }, [])
+  }, []);
   
   useEffect(() => {
     AOS.init();
@@ -69,15 +69,17 @@ function App() {
       <HashRouter>
         <Suspense fallback={<Loading/>}>
           <div className="App">
-            <Header className="Header"/>
-            <Routes>
-              <Route path={`*`} element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
-              <Route path={`/`} element={<Home/>}/>
-              <Route path={`/youtube`} element={<YoutubeChannels/>}/>
-              <Route path={`/lives`} element={<Lives/>}/>
-              <Route path={`/create-campaigns`} element={<ManageCampaigns/>}/>
-            </Routes>
-            <Footer/>
+            <BaseComponent>
+              <Header className="Header"/>
+              <Routes>
+                <Route path={`*`} element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
+                <Route path={`/`} element={<Home/>}/>
+                <Route path={`/youtube`} element={<YoutubeChannels/>}/>
+                <Route path={`/lives`} element={<Lives/>}/>
+                <Route path={`/create-campaigns`} element={<ManageCampaigns/>}/>
+              </Routes>
+              <Footer/>
+            </BaseComponent>
           </div>
         </Suspense>
       </HashRouter>

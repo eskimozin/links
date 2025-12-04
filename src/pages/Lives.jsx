@@ -10,7 +10,7 @@ function Lives() {
   const multiStreamSections = [...sections];
   
   // Estado para controlar a visibilidade do conteúdo principal
-  const [captchaComplete, setCaptchaComplete] = useState(false);
+  const [captchaComplete, setCaptchaComplete] = useState(true);
   
   // Estados para o CAPTCHA
   const [num1, setNum1] = useState(0);
@@ -23,7 +23,8 @@ function Lives() {
   const inputRef = useRef(<></>);
   
   const focusInputRef = () => {
-    if (inputRef.current) inputRef.current?.focus();
+    if (inputRef.current && inputRef.current.tagName)
+      if (inputRef.current.tagName.toLowerCase() === "input") inputRef.current.focus();
   }
   
   useEffect(() => {
