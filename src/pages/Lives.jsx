@@ -23,7 +23,8 @@ function Lives() {
   const inputRef = useRef(<></>);
   
   const focusInputRef = () => {
-    if (inputRef.current) inputRef.current?.focus();
+    if (inputRef.current && inputRef.current.tagName)
+      if (inputRef.current.tagName.toLowerCase() === "input") inputRef.current.focus();
   }
   
   useEffect(() => {
