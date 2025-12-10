@@ -255,24 +255,24 @@ const sections = [
       },
     ]
   },
-  {
-    title: "lives na kick",
-    legend: "Agora as lives acontecem na Kick. Siga o eskimo lá e fique ligado!",
-    className: "general-list kick-section",
-    link: "https://kick.com/eskimozin",
-    listItems: [
-      {
-        order: 1,
-        visible: true,
-        name: "kick.com/eskimozin",
-        link: "https://kick.com/eskimozin",
-        img: "./img/kick.svg",
-        imgStyle: "w-100",
-        alt: "Logo da Kick",
-        title: "Kick"
-      },
-    ]
-  },
+  // {
+  //   title: "lives na kick",
+  //   legend: "Agora as lives acontecem na Kick. Siga o eskimo lá e fique ligado!",
+  //   className: "general-list kick-section",
+  //   link: "https://kick.com/eskimozin",
+  //   listItems: [
+  //     {
+  //       order: 1,
+  //       visible: true,
+  //       name: "kick.com/eskimozin",
+  //       link: "https://kick.com/eskimozin",
+  //       img: "./img/kick.svg",
+  //       imgStyle: "w-100",
+  //       alt: "Logo da Kick",
+  //       title: "Kick"
+  //     },
+  //   ]
+  // },
 ]
 
 export {sections}
