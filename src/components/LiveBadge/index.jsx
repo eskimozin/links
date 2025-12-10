@@ -4,8 +4,8 @@ import Util from "../../assets/Util.jsx";
 
 export default function LiveBadge() {
   const initialContent = useRef(
-    <div className={"text-white mt-3 text-balance text-sml mx-auto"} style={{maxWidth: "500px"}}>
-      {Util.renderText("² O eskimo resolveu dar um tempo das lives, para botar a cabeça no lugar, depois de mais de 6 anos consecutivos fazendo lives semanalmente. Pode ser que as lives retornem algum dia. A última foi em 05/12/2025.")}
+    <div className={"text-white mt-3 text-balance text-sml mx-auto d-none"} style={{maxWidth: "500px"}}>
+      {Util.renderText("² O eskimo resolveu dar um tempo das lives, para botar a cabeça no lugar, depois de mais de 6 anos consecutivos fazendo lives semanalmente. Pode ser que as lives retornem algum dia. A última foi em 05/12/2025...")}
     </div>
   );
   

@@ -70,7 +70,7 @@ function Header() {
             className={"position-relative"}
           >
             <div className={"d-block rounded-pill px-2 position-absolute top-50 text-body bg-white"} style={{left: "6rem"}}>
-              <span className={"text-nowrap text-sml d-block"} style={{margin: "0.125rem 0"}}>em hiato²</span>
+              <span className={"text-nowrap text-sml d-block  d-none"} style={{margin: "0.125rem 0"}}>em hiato²</span>
             </div>
             <img src={pathname ? "../img/favicon.png" : "./img/favicon.png"} alt="Imagem do Eskimozin"/>
           </Link>
