@@ -256,7 +256,7 @@ const sections = [
     ]
   },
   {
-    title: "lives na kick",
+    title: "lives na KICK",
     legend: "Agora as lives acontecem na Kick. Siga o eskimo lá e fique ligado!",
     className: "general-list kick-section",
     link: "https://kick.com/eskimozin",

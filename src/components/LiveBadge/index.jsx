@@ -1,10 +1,17 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {host, links} from "../../data/config.js";
+import Util from "../../assets/Util.jsx";
 
 export default function LiveBadge() {
+  const initialContent = useRef(
+    <div className={"text-white mt-3 text-balance text-sml mx-auto d-none"} style={{maxWidth: "500px"}}>
+      {Util.renderText("² O eskimo resolveu dar um tempo das lives, para botar a cabeça no lugar, depois de mais de 6 anos consecutivos fazendo lives semanalmente. Pode ser que as lives retornem algum dia. A última foi em 05/12/2025...")}
+    </div>
+  );
+  
   const [liveInKick, setLiveInKick] = useState(false);
   const [liveInTwitch, setLiveInTwitch] = useState(false);
-  const [content, setContent] = useState(<></>);
+  const [content, setContent] = useState(initialContent.current);
   
   useEffect(() => {
     const endpoints = {
@@ -57,7 +64,7 @@ export default function LiveBadge() {
       }
     };
     
-    setContent(resContent());
+    setContent(resContent() ?? initialContent.current);
   }, [liveInKick, liveInTwitch]);
   
   return (

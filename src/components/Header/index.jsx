@@ -2,7 +2,7 @@ import './index.css'
 import {contacts} from '../../data/contacts.js'
 import {useContext, useEffect, useState} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
-import {useNavigate, useLocation} from "react-router-dom";
+import {useNavigate, useLocation, Link} from "react-router-dom";
 import LiveBadge from "../LiveBadge/index.jsx";
 
 function Header() {
@@ -60,16 +60,20 @@ function Header() {
       
       <header className="animate-from-bottom">
         <div className={"gradient-area"}>
-          <a
-            href="https://kick.com/eskimozin"
+          <Link
+            to="https://instagram.com/eskimozin"
             rel="noreferrer noopener"
             data-toggle="tooltip"
             data-placement="top"
             data-bs-custom-class="custom-tooltip"
-            title="Whiskimo na KICK"
+            title="Eskimo no Instagram"
+            className={"position-relative"}
           >
+            <div className={"d-block rounded-pill px-2 position-absolute top-50 text-body bg-white"} style={{left: "6rem"}}>
+              <span className={"text-nowrap text-sml d-block  d-none"} style={{margin: "0.125rem 0"}}>em hiato²</span>
+            </div>
             <img src={pathname ? "../img/favicon.png" : "./img/favicon.png"} alt="Imagem do Eskimozin"/>
-          </a>
+          </Link>
         </div>
         <h1>Eskimozin</h1>
         <a href={`mailto:${mail}`} className={"link-style"} rel={"noreferrer noopener"} data-ref={"eskimozin-mail"}>{mail}</a>
