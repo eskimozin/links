@@ -189,3 +189,7 @@ button.bg-theme {
 .text-sml * {
     font-size: 13px !important;
 }
+
+.text-transform-normal {
+    text-transform: initial;
+}

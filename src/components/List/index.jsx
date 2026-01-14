@@ -26,9 +26,19 @@ function List({className, id, type}) {
       {
         list.map((item, index) => {
           return (
-            <li key={index} data-toggle="tooltip" data-placement="top" data-bs-custom-class="custom-tooltip" title={item.title === undefined ? item.alt : item.title}>
+            <li
+              key={index}
+              data-toggle="tooltip"
+              data-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              title={
+                (item.title === undefined ? item.alt : item.title).toUpperCase() === "KICK" ?
+                  (item.title === undefined ? item.alt : item.title).toUpperCase() :
+                  item.title === undefined ? item.alt : item.title
+              }
+            >
               <a target="_blank" rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
-                <img src={item.img.startsWith(".") ? ((pathname ? "." : "" ) + item.img) : item.img} alt={item.alt} className={item.imgStyle ? item.imgStyle : ''} loading="lazy"/>
+                <img src={item.img.startsWith(".") ? ((pathname ? "." : "") + item.img) : item.img} alt={item.alt} className={item.imgStyle ? item.imgStyle : ''} loading="lazy"/>
               </a>
               <a target="_blank" rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
                 {className === "social-list" ? <h3 className={"title"}>{item.nick}</h3> : <h3 className={"title"}>{renderText(item.name)}</h3>}

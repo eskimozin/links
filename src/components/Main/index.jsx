@@ -69,9 +69,9 @@ function Main() {
       <Campaings key={"campaing"}/>
       {
         [...sections.sort((a, b) => {
-          const titleMatch = "lives na kick";
-          if (a.title === titleMatch && b.title !== titleMatch) return -1; // a vem primeiro
-          if (a.title !== titleMatch && b.title === titleMatch) return 1;  // b vem primeiro
+          const titleMatch = "lives na KICK".toLowerCase();
+          if (a.title === titleMatch && b.title.toLowerCase() !== titleMatch) return -1; // a vem primeiro
+          if (a.title !== titleMatch && b.title.toLowerCase() === titleMatch) return 1;  // b vem primeiro
           return 0;
         })].map(function (secao, index) {
           return (
