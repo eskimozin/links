@@ -13,6 +13,7 @@
     "deploy": "node register.build.js && vite build && gh-pages -d dist",
     "cy:run": "cypress run",
     "test": "cypress run",
+    "update": "npm update",
     "ci:test": "start-server-and-test dev http://localhost:5173 test"
   },
   "dependencies": {

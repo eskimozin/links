@@ -15,20 +15,23 @@
     * {
       font-family: 'Inter', sans-serif;
     }
-
+    
     input[type=number]::-webkit-inner-spin-button {
       -webkit-appearance: none;
-
     }
-
+    
     input[type=number] {
       -moz-appearance: textfield;
       appearance: textfield;
-
+      
     }
-
+    
     input.is-invalid {
       border-color: #FFA9B1 !important;
+    }
+    
+    .text-small {
+      font-size: 13px !important;
     }
   </style>
 </head>
@@ -44,7 +47,7 @@
 
 <script type="module">
   import {campaigns} from '../campaigns.js';
-
+  
   const campaingDefault = [
     {
       title: "",
@@ -55,84 +58,101 @@
       datetimeInit: `${new Date().toISOString().split('T')[0]}T00:00`,
       datetimeFinish: `${new Date().toISOString().split('T')[0]}T23:59`
     },
-    ...campaigns.map((c, i) => {return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};})
+    ...campaigns.map((c, i) => {
+      return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};
+    })
   ]
-
+  
   const vueapp = {
     template: `
-      <div class="container">
-        <h1 class="fs-2 fw-medium text-lowercase mb-4" style="letter-spacing: -0.5px">Criar campanhas</h1>
-        <form action="#" method="POST">
-          <div class="mt-2" v-for="(item, index) in items" :key="index">
-            <span v-text="item.recuperate" class="fw-bold d-block"></span>
-            <div class="{{item.class}}">
-              <div class="d-flex gap-2 mb-3">
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="title">Título</label>
-                  <input v-model="item.title" id="title" type="text" class="form-control" placeholder="Título" required
-                         @input="eventListenerInput">
-                </div>
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="subtitle">Subtítulo</label>
-                  <input v-model="item.subtitle" id="subtitle" type="text" class="form-control" placeholder="Subtítulo"
-                         required @input="eventListenerInput">
-                </div>
-              </div>
-              <div class="d-flex gap-2 mb-3">
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="url">URL</label>
-                  <input v-model="item.link" id="url" type="url" class="form-control" placeholder="Link" required
-                         @input="eventListenerInput">
-                </div>
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="linkName">Nome do link</label>
-                  <input v-model="item.linkName" id="linkName" type="text" class="form-control"
-                         placeholder="Nome do link" required @input="eventListenerInput">
-                </div>
-              </div>
-              <div class="d-flex gap-2 mb-3">
-                <div class="form-group w-100">
-                  <label class="form-label mb-1 text-muted" for="legend">Legenda</label>
-                  <input v-model="item.legend" id="legend" type="text" class="form-control" placeholder="Legenda"
-                         required
-                         @input="eventListenerInput">
-                </div>
-              </div>
-              <div class="d-flex gap-2 mb-3">
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="datetimeInit">Data de início</label>
-                  <input v-model="item.datetimeInit" id="datetimeInit" type="datetime-local" class="form-control"
-                         required
-                         @input="eventListenerInput">
-                </div>
-                <div class="form-group w-50">
-                  <label class="form-label mb-1 text-muted" for="datetimeFinish">Data de fim</label>
-                  <input v-model="item.datetimeFinish" id="datetimeFinish" type="datetime-local" class="form-control"
-                         required @input="eventListenerInput">
-                </div>
-              </div>
-              <div class="d-flex gap-2 mb-4">
-                <button @click="removerItem(index)" type="button" class="btn  btn-danger">Remover item</button>
+      <div class="container-fluid">
+        <div class="row">
+          <aside class="col-md-3">
+            <h2 class="text-body-tertiary mb-4 pb-2">lista de campanhas</h2>
+            <div class="list-group">
+              <a v-for="(item, index) in items" :key="index" href="#" @click.prevent="scrollToCampaign(index)" class="list-group-item list-group-item-action text-truncate text-small">
+                {{ item.title || 'Nova Campanha' }}
+              </a>
+            </div>
+          </aside>
+          <main class="col-md-9 mt-md-0 mt-5">
+            <hr class="d-md-none">
+            <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center mb-4">
+              <h1 class="fs-2 fw-medium text-lowercase" style="letter-spacing: -0.5px">campanhas</h1>
+              <div class="d-flex flex-wrap align-items-center gap-1">
+                <button @click="adicionarItem" type="button" class="btn btn-primary">Adicionar item</button>
+                <button class="btn btn-secondary" @click="copiarItens">Copiar</button>
               </div>
             </div>
-          </div>
-          <div class="d-flex gap-1">
-            <button @click="adicionarItem" type="button" class="btn btn-primary">Adicionar item</button>
-          </div>
-        </form>
-        <br><br>
-        <pre>
-          const campaings = {{ items }};
-          export { campaings };
-        </pre>
-        <hr>
-        <div id="preview"></div>
-
-        <br>
-        <div class="d-flex gap-2">
-          <button class="btn btn-secondary" @click="copiarItens">Copiar</button>
-          <button class="btn btn-secondary" disabled @click="alert('XXXX')">Visualizar preview (sob implementação)
-          </button>
+            <div class="accordion" id="campaignsAccordion">
+              <div class="accordion-item" v-for="(item, index) in items" :key="index" :id="'campaign-item-' + index">
+                <h2 class="accordion-header" :id="'heading' + index">
+                  <button :class="['accordion-button ', index !== 0 ? 'collapsed' : '']" type="button" data-bs-toggle="collapse" :data-bs-target="'#collapse' + index" :aria-expanded="index === 0" :aria-controls="'collapse' + index">
+                    {{ item.title || 'Nova Campanha' }}
+                  </button>
+                </h2>
+                <div :id="'collapse' + index" :class="['accordion-collapse', 'collapse', index === 0 ? 'show' : '']" :aria-labelledby="'heading' + index" data-bs-parent="#campaignsAccordion">
+                  <div class="accordion-body">
+                    <form action="#" method="POST">
+                      <span v-text="item.recuperate" class="fw-bold d-block"></span>
+                      <div class="{{item.class}}">
+                        <div class="d-flex gap-2 mb-3">
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'title' + index">Título</label>
+                            <input v-model="item.title" :id="'title' + index" type="text" class="form-control" placeholder="Título" required @input="eventListenerInput">
+                          </div>
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'subtitle' + index">Subtítulo</label>
+                            <input v-model="item.subtitle" :id="'subtitle' + index" type="text" class="form-control" placeholder="Subtítulo" required @input="eventListenerInput">
+                          </div>
+                        </div>
+                        <div class="d-flex gap-2 mb-3">
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'url' + index">URL</label>
+                            <input v-model="item.link" :id="'url' + index" type="url" class="form-control" placeholder="Link" required @input="eventListenerInput">
+                          </div>
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'linkName' + index">Nome do link</label>
+                            <input v-model="item.linkName" :id="'linkName' + index" type="text" class="form-control" placeholder="Nome do link" required @input="eventListenerInput">
+                          </div>
+                        </div>
+                        <div class="d-flex gap-2 mb-3">
+                          <div class="form-group w-100">
+                            <label class="form-label mb-1 text-muted" :for="'legend' + index">Legenda</label>
+                            <input v-model="item.legend" :id="'legend' + index" type="text" class="form-control" placeholder="Legenda" required @input="eventListenerInput">
+                          </div>
+                        </div>
+                        <div class="d-flex gap-2 mb-3">
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'datetimeInit' + index">Data de início</label>
+                            <input v-model="item.datetimeInit" :id="'datetimeInit' + index" type="datetime-local" class="form-control" required @input="eventListenerInput">
+                          </div>
+                          <div class="form-group w-50">
+                            <label class="form-label mb-1 text-muted" :for="'datetimeFinish' + index">Data de fim</label>
+                            <input v-model="item.datetimeFinish" :id="'datetimeFinish' + index" type="datetime-local" class="form-control" required @input="eventListenerInput">
+                          </div>
+                        </div>
+                        <div class="d-flex gap-2 mb-4">
+                          <button @click="removerItem(index)" type="button" class="btn btn-danger">Remover item</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <hr>
+            <h2 class="text-body-tertiary mb-4">JSON</h2>
+            <pre class="bg-body-secondary rounded p-2 overflow-y-scroll" style="max-height: 400px">
+              const campaings = {{ items }};
+              export { campaings };
+            </pre>
+            <hr>
+            <div id="preview"></div>
+            
+            <br>
+          </main>
         </div>
       </div>`,
     data() {
@@ -155,7 +175,7 @@
             return true;
           }
         });
-
+        
         // Verifica se as datas de início e fim são válidas, se a data de início é menor que a data de fim e não são iguais
         const hasInvalidDate = this.items.some(item => {
           const dateInit = new Date(item.datetimeInit);
@@ -174,7 +194,7 @@
             // return true;
           }
         });
-
+        
         if (!hasEmptyField && !hasInvalidDate) {
           navigator.clipboard.writeText(`const campaigns = ${JSON.stringify(this.items)};\nexport { campaigns };`).then(() => {
             alert('Copiado!');
@@ -192,16 +212,44 @@
         } else {
           input.classList.remove('is-invalid');
         }
+      },
+      scrollToCampaign(index) {
+        const campaignItem = document.getElementById(`campaign-item-${index}`);
+        const collapseTarget = document.getElementById(`collapse${index}`);
+        
+        if (campaignItem && collapseTarget) {
+          if (collapseTarget.classList.contains('show')) {
+            campaignItem.scrollIntoView({behavior: 'smooth'});
+            return;
+          }
+          
+          const scrollOnceShown = () => {
+            campaignItem.scrollIntoView({behavior: 'smooth'});
+            collapseTarget.removeEventListener('shown.bs.collapse', scrollOnceShown);
+          };
+          
+          collapseTarget.addEventListener('shown.bs.collapse', scrollOnceShown);
+          
+          const collapseInstance = bootstrap.Collapse.getOrCreateInstance(collapseTarget);
+          collapseInstance.show();
+        }
       }
     }
   }
-
+  
   const app = Vue.createApp({
     components: {
       vueapp
-    }
+    },
   });
-
+  
+  Vue.nextTick(() => {
+    setTimeout(() => {
+      const inputTitle = document.querySelector('#title0');
+      if (inputTitle) inputTitle.focus();
+    }, 250);
+  })
+  
   app.mount('#app');
 </script>
 
