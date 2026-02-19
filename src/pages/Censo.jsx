@@ -17,7 +17,7 @@ export default function Censo() {
   return (
     <div className={"text-white text-center mb-5 mt-5 animate-from-bottom"}>
       <p className={"text-balance mx-auto"} style={{maxWidth: "500px"}}>
-        Redirecionando... Aguarde alguns segundos. Se demorar demais ou o navegador impedir o redirecionamento, <Link to={url?.current ?? "#"} className={"text-body"}>clique aqui</Link>.
+        Redirecionando... Aguarde alguns segundos. Se demorar demais ou o navegador impedir o redirecionamento, <Link to={url?.current ?? "#"} className={"text-white"}>clique aqui</Link>.
       </p>
     </div>
   );

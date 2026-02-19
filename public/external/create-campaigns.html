@@ -55,8 +55,8 @@
       link: "https://twitch.tv/eskimozin",
       legend: "Acesse agora",
       linkName: "",
-      datetimeInit: `${new Date().toISOString().split('T')[0]}T00:00`,
-      datetimeFinish: `${new Date().toISOString().split('T')[0]}T23:59`
+      datetimeInit: `${new Date().toISOString().split('T')[0]}T00:00-03:00`,
+      datetimeFinish: `${new Date().toISOString().split('T')[0]}T23:59-03:00`
     },
     ...campaigns.map((c, i) => {
       return {...c, recuperate: `Campanha recuperada - N.º ${i + 1}`, class: 'd-none'};
@@ -188,7 +188,8 @@
             // Para evitar que dois alertas sejam exibidos
             if (!hasEmptyField) alert('Data de início não pode ser igual a data de fim');
             return true;
-          } else if (dateFinish < new Date()) {
+          } else if (dateFinish.getTime() < new Date().getTime()) {
+            // (2 * 55 * 100000) conversão aprox. de - 3 horas
             // Para evitar que dois alertas sejam exibidos
             // if (!hasEmptyField) alert('Data de fim não pode ser menor que a data atual');
             // return true;
