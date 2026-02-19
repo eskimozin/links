@@ -1,11 +1,8 @@
-import {Suspense, useEffect, useState} from 'react';
-
+import {Suspense, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {baseUrl} from "./data/config.js";
-
 import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
-import {HashRouter, Route, Routes, useLocation} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Outlet} from "react-router-dom";
 
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
@@ -17,10 +14,19 @@ import Home from "./pages/Home.jsx";
 import Lives from "./pages/Lives.jsx";
 import YoutubeChannels from "./pages/YoutubeChannels.jsx";
 import ManageCampaigns from "./pages/ManageCampaigns.jsx";
+import Censo from "./pages/Censo.jsx";
+
+const MainLayout = () => {
+  return (
+    <BaseComponent>
+      <Header className="Header"/>
+      <Outlet />
+      <Footer/>
+    </BaseComponent>
+  );
+};
 
 function App() {
-  const [pathname, setPathname] = useState("");
-  
   useEffect(() => {
     new bootstrap.Tooltip(document.body, {
       selector: '[data-toggle="tooltip"]',
@@ -37,52 +43,34 @@ function App() {
   }, []);
   
   useEffect(() => {
-    const targetNode = document.body;
-    const config = {attributes: true, childList: true, subtree: true};
-    setPathname(window.location.pathname.replace(`/${baseUrl}/`, ""));
-    
-    const callback = () => {
-      // const callback = (mutationList) => {
-      setPathname(window.location.pathname.replace(`/${baseUrl}/`, ""));
-      // for (const mutation of mutationList) {
-      // if (mutation.type === "childList") console.log("A child node has been added or removed.");
-      // else if (mutation.type === "attributes") console.log(`The ${mutation.attributeName} attribute was modified.`);
-      // }
-    }
-    
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, config);
-    
-    return () => {
-      observer.disconnect();
-    }
-  }, []);
-  
-  useEffect(() => {
     setTimeout(() => {
-      document.querySelector(".overlay-appx").style.display = "none";
+      if (document) document.querySelector(".overlay-appx").style.display = "none";
     }, 250);
   }, []);
   
   return (
-    <AppContext value={{pathname, setPathname}}>
-      <HashRouter>
+    <AppContext value={{}}>
+      <BrowserRouter basename="/links">
         <Suspense fallback={<Loading/>}>
           <div className="App">
-            <BaseComponent>
-              <Header className="Header"/>
-              <Routes>
-                <Route path={`*`} element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
-                <Route path={`/`} element={<Home/>}/>
-                <Route path={`/youtube`} element={<YoutubeChannels/>}/>
-                <Route path={`/lives`} element={<Lives/>}/>
-                <Route path={`/create-campaigns`} element={<ManageCampaigns/>}/>
-              </Routes>
-              <Footer/>
-            </BaseComponent>
+            <Routes>
+              {/* Rota especial sem o layout principal */}
+              <Route path="/censo" element={<Censo />} />
+
+              {/* Rotas que utilizam o layout principal */}
+              <Route element={<MainLayout />}>
+                <Route index element={<Home/>}/>
+                <Route path="/youtube" element={<YoutubeChannels/>}/>
+                <Route path="/lives" element={<Lives/>}/>
+                <Route path="/create-campaigns" element={<ManageCampaigns/>}/>
+              </Route>
+
+              {/* Rota 404 - deve ser a última */}
+              <Route path="*" element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
+            </Routes>
           </div>
         </Suspense>
-      </HashRouter>
+      </BrowserRouter>
     </AppContext>
   );
 }

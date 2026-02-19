@@ -5,13 +5,27 @@ import {ThemeContext} from "../AppContext/AppContext.jsx";
 import {useNavigate, useLocation, Link} from "react-router-dom";
 import LiveBadge from "../LiveBadge/index.jsx";
 
+import moment from "moment";
+
+moment.locale("America/Sao_Paulo")
+
 function Header() {
   const {mail} = contacts;
   const {pathname} = useContext(ThemeContext);
   const location = useLocation();
-
   const navigate = useNavigate();
   const [show, setShow] = useState(true);
+  
+  const now = moment();
+  const maxDTSCenso = moment("2026-02-28T23:59:59");
+  
+  const [items, setItems] = useState(
+    [
+      ["Home", "/"],
+      ["Youtube", "/youtube"],
+      ["Lives", "/lives"],
+    ]
+  );
   
   const control = () => {
     // if (document.querySelector("body").classList.contains("modal-open")) setShow(false);
@@ -30,19 +44,24 @@ function Header() {
     }
   }, []);
   
+  useEffect(() => {
+    if (now) {
+      const diff = now.diff(maxDTSCenso, "seconds");
+      if (diff < 1) setItems((prev) => {
+        return [...prev, ["Censo", "/censo"]];
+      })
+    }
+  }, []);
+  
   return (
     <>
       {
         show && (
-          <section className={"animate-from-bottom menu d-flex align-items-center justify-content-center position-sticky z-3"} style={{top: "2rem", left: "0"}}>
-            <div className={"mb-5 top-0 d-inline-flex px-4 py-2 rounded-2"} style={{background: "#FFFFFF35", border: "1px solid #FFFFFF25", backdropFilter: "blur(20px)", width: "320px"}}>
-              <ul className={"m-0 p-0 d-flex align-items-center flex-wrap gap-3 gap-md-4"}>
+          <section className={"animate-from-bottom menu d-flex align-items-center justify-content-center position-sticky z-3"} style={{top: "2rem", width: "100%"}}>
+            <div className={"mb-5 top-0 px-4 py-2 rounded-2"} style={{background: "#FFFFFF35", border: "1px solid #FFFFFF25", backdropFilter: "blur(20px)"}}>
+              <ul className={"m-0 p-0 d-flex align-items-center justify-content-evenly gap-3 gap-md-3"} style={{minWidth: "325px"}}>
                 {
-                  [
-                    ["Home", "/"],
-                    ["Youtube", "/youtube"],
-                    ["Lives", "/lives"]
-                  ].map((item, index) => (
+                  [...items].map((item, index) => (
                     <li className={`menu-item-link rounded-pill cursor-pointer ${location?.pathname === item[1] ? "fw-bold" : ""}`} role={"link"} key={index} onClick={(e) => {
                       e.preventDefault();
                       navigate(item[1] || "/");
