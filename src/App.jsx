@@ -20,7 +20,7 @@ const MainLayout = () => {
   return (
     <BaseComponent>
       <Header className="Header"/>
-      <Outlet />
+      <Outlet/>
       <Footer/>
     </BaseComponent>
   );
@@ -54,17 +54,15 @@ function App() {
         <Suspense fallback={<Loading/>}>
           <div className="App">
             <Routes>
-              {/* Rota especial sem o layout principal */}
-              <Route path="/censo" element={<Censo />} />
-
               {/* Rotas que utilizam o layout principal */}
-              <Route element={<MainLayout />}>
+              <Route element={<MainLayout/>}>
                 <Route index element={<Home/>}/>
                 <Route path="/youtube" element={<YoutubeChannels/>}/>
                 <Route path="/lives" element={<Lives/>}/>
                 <Route path="/create-campaigns" element={<ManageCampaigns/>}/>
+                <Route path="/censo" element={<Censo/>}/>
               </Route>
-
+              
               {/* Rota 404 - deve ser a última */}
               <Route path="*" element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
             </Routes>
