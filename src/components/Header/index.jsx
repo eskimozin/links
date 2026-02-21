@@ -6,6 +6,7 @@ import {useNavigate, useLocation, Link} from "react-router-dom";
 import LiveBadge from "../LiveBadge/index.jsx";
 
 import moment from "moment";
+import {OverlayTrigger, Tooltip} from "react-bootstrap";
 
 moment.locale("America/Sao_Paulo")
 
@@ -90,12 +91,50 @@ function Header() {
             className={"position-relative"}
           >
             <div className={"d-block rounded-pill px-2 position-absolute top-50 text-body bg-white"} style={{left: "6rem"}}>
-              <span className={"text-nowrap text-sml d-block  d-none"} style={{margin: "0.125rem 0"}}>em hiato²</span>
+              <span className={"text-nowrap text-sml d-block d-none"} style={{margin: "0.125rem 0"}}>em hiato²</span>
             </div>
             <img src={pathname ? "../img/favicon.png" : "./img/favicon.png"} alt="Imagem do Eskimozin"/>
           </Link>
         </div>
-        <h1>Eskimozin</h1>
+        <div
+          className={"d-flex flex-wrap gap-2 align-items-center justify-content-center bg-transparent p-0 mx-auto rounded-0 w-auto"}
+          style={{background: "unset", padding: 0, margin: 0}}
+        >
+          
+          <h1 className={"m-0 p-0"}>Eskimozin</h1>
+          <span className={"text-white-50"}>|</span>
+          <Link
+            to={"https://brainmade.org/"}
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+          >
+            <OverlayTrigger overlay={
+              <Tooltip className={"text-sml"}>
+                {
+                  "Este projeto foi feito por humanos como você. Human = Good! Essa é a nossa causa."
+                    .split(/(?<=[.!?])\s+/)
+                    .map((sentence, index) => {
+                    return (
+                      <span
+                        className={`text-balance align-items-center justify-content-center w-auto ${sentence.includes("Human = Good!") ? "bg-success d-inline-flex px-1" : "d-flex"}`}
+                        key={index}
+                      >
+                      {sentence}
+                    </span>
+                    )
+                  })
+                }
+              </Tooltip>
+            }>
+              <img
+                className={"bg-transparent p-0 m-0 rounded-0 object-fit-contain"}
+                src={pathname ? "../img/brain-made.svg" : "./img/brain-made.svg"}
+                alt={"Logo da iniciativa \"Brain Made\" - projetos feitos por um humano"}
+                style={{background: "unset", padding: 0, margin: 0, width: "80px", height: "40px"}}
+              />
+            </OverlayTrigger>
+          </Link>
+        </div>
         <a href={`mailto:${mail}`} className={"link-style"} rel={"noreferrer noopener"} data-ref={"eskimozin-mail"}>{mail}</a>
         <LiveBadge/>
       </header>
