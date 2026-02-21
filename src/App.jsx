@@ -2,28 +2,37 @@ import {Suspense, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
-import {BrowserRouter, Route, Routes, Outlet} from "react-router-dom";
+import {BrowserRouter, Route, Routes, Outlet, useLocation} from "react-router-dom";
 
 import {Header} from "./components/Header";
 import {Footer} from "./components/Footer";
 import Loading from "./components/Loading/Loading.jsx";
 import {AppContext} from "./components/AppContext/AppContext.jsx";
 import BaseComponent from "./components/BaseComponents/BaseComponents.jsx";
-
-import Home from "./pages/Home.jsx";
-import Lives from "./pages/Lives.jsx";
-import YoutubeChannels from "./pages/YoutubeChannels.jsx";
-import ManageCampaigns from "./pages/ManageCampaigns.jsx";
-import Censo from "./pages/Censo.jsx";
+import NoExists from "./pages/NoExists.jsx";
+import {routes} from "./routes.js";
 
 const MainLayout = () => {
   return (
     <BaseComponent>
       <Header className="Header"/>
-      <Outlet />
+      <Outlet/>
       <Footer/>
     </BaseComponent>
   );
+};
+
+// Este componente irá forçar uma barra final apenas na rota base.
+const GlobalSlashEnforcer = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/links') {
+      window.history.replaceState(null, '', path + '/');
+    }
+  }, [location]); // Re-executa quando a localização muda.
+  
+  return null;
 };
 
 function App() {
@@ -51,22 +60,19 @@ function App() {
   return (
     <AppContext value={{}}>
       <BrowserRouter basename="/links">
+        <GlobalSlashEnforcer/>
         <Suspense fallback={<Loading/>}>
           <div className="App">
             <Routes>
-              {/* Rota especial sem o layout principal */}
-              <Route path="/censo" element={<Censo />} />
-
               {/* Rotas que utilizam o layout principal */}
-              <Route element={<MainLayout />}>
-                <Route index element={<Home/>}/>
-                <Route path="/youtube" element={<YoutubeChannels/>}/>
-                <Route path="/lives" element={<Lives/>}/>
-                <Route path="/create-campaigns" element={<ManageCampaigns/>}/>
+              <Route element={<MainLayout/>}>
+                {routes.map((route) => {
+                  const {path, component: Component, isIndex} = route;
+                  if (isIndex) return <Route index element={<Component/>} key="index"/>;
+                  return <Route path={path} element={<Component/>} key={path}/>;
+                })}
+                <Route path="*" element={<NoExists/>}/>
               </Route>
-
-              {/* Rota 404 - deve ser a última */}
-              <Route path="*" element={<h3 className={"fs-3 text-white text-center my-5 py-5 lh-base fw-semibold"}>#404<br/>Desculpe, mas esta página não existe :(</h3>}/>
             </Routes>
           </div>
         </Suspense>

@@ -12,7 +12,7 @@ export default function ManageCampaigns() {
       window.open(`${origin}${base}external/create-campaigns.html`);
       setRedirect(<Navigate to={"/"}/>);
     }, 1500);
-  }, []);
+  }, [base, origin]);
   
   return (
     <>
