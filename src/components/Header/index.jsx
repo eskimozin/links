@@ -14,7 +14,7 @@ function Header() {
   const {pathname} = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const [show, setShow] = useState(true);
+  const show = useState(true);
   
   const now = moment();
   const maxDTSCenso = moment("2026-02-28T23:59:59");
@@ -51,6 +51,7 @@ function Header() {
         return [...prev, ["Censo", "/censo"]];
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   return (

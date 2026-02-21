@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'; // Importar o componente Form
 import {sections} from "../data/lives.js";
-import {useState, useEffect, useRef} from "react"; // Importar useEffect
+import {useState, useEffect, useRef, useCallback} from "react"; // Importar useEffect
 
 function Lives() {
   const multiStreamSections = [...sections];
@@ -32,14 +32,16 @@ function Lives() {
       setTimeout(() => {
         focusInputRef();
       }, 500);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       render = render += 1;
     }
-  }, [inputRef])
+  }, [inputRef, render])
   
   // Lógica de Randomização
   // Roda apenas uma vez quando o componente é montado
   useEffect(() => {
     generateNewCaptcha();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   useEffect(() => {
@@ -48,9 +50,10 @@ function Lives() {
       verifyCaptcha();
       setMessage("");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
   
-  const generateNewCaptcha = () => {
+  const generateNewCaptcha = useCallback(() => {
     const newNum1 = Math.floor(Math.random() * 10) + 1; // Número aleatório de 1 a 10
     const newNum2 = Math.floor(Math.random() * 10) + 1; // Número aleatório de 1 a 10
     const operators = ['soma', 'multiplicação'];
@@ -61,7 +64,7 @@ function Lives() {
     setNum1(newNum1);
     setNum2(newNum2);
     setOperator(randomOperator);
-  };
+  }, []);
   
   // Lógica de Validação
   const handleCaptchaSubmit = (e) => {
@@ -73,7 +76,9 @@ function Lives() {
     }
   };
   
-  const verifyCaptcha = () => {
+  const verifyCaptcha = useCallback(() => {
+    if (!message || !operator || !num1 || !num2 || !userInput) return false;
+    
     // Se tiver alguma mensagem para o usuário corrigir, não segue com verificação
     if (message) {
       setMessage((prevState) => !prevState.includes("Atenção: ") ? "Atenção: " + prevState + "!" : prevState)
@@ -91,7 +96,7 @@ function Lives() {
       setMessage('Resposta incorreta. Tente novamente!'); // Feedback para o usuário
       return false;
     }
-  }
+  }, [message, operator, num1, num2, userInput])
   
   // Define o texto da operação para exibição
   const operatorText = operator === 'soma' ? 'mais' : 'multiplicado por';

@@ -7,7 +7,7 @@ export default function Censo() {
   useEffect(() => {
     const action = () => {
       setTimeout(() => {
-        window.location.href = url.current;
+        // window.location.href = url.current;
       }, 3000);
     }
     
@@ -19,7 +19,7 @@ export default function Censo() {
     return phrase.split("E!").map((word, index, self) => {
       return (
         <>
-          <span key={index} className={"bg-warning text-black px-1 d-inline-flex my-1"}>{word}</span>
+          <span key={`${index}-${Math.random() * 100000}-${Math.random() * 100}`} className={"bg-warning text-black px-1 d-inline-flex my-1"}>{word}</span>
           {self.length === index + 1 ? "" : " "}
         </>
       )
@@ -28,10 +28,10 @@ export default function Censo() {
   
   return (
     <div className={"text-white text-center mb-5 mt-5 animate-from-bottom"}>
-      <p className={"text-balance mx-auto"} style={{maxWidth: "500px"}}>
+      <p className={"text-balance mx-auto"} key={new Date().getTime() * Math.random()} style={{maxWidth: "500px"}}>
         {splitPhrases("Redirecionando...E!Aguarde alguns segundos.E!Se demorar demais ou o navegador impedir o redirecionamento:")}
         {" "}
-        <Link to={url?.current ?? "#"} className={"text-decoration-none fw-bold text-capitalize"}>{splitPhrases("clique aqui.")}</Link>
+        <Link key={new Date().getTime()} to={url?.current ?? "#"} className={"text-decoration-none fw-bold text-capitalize"}>{splitPhrases("clique aqui.")}</Link>
       </p>
     </div>
   );
