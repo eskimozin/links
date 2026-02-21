@@ -22,12 +22,12 @@ const MainLayout = () => {
   );
 };
 
-// Este componente irá forçar uma barra final em todas as rotas.
+// Este componente irá forçar uma barra final apenas na rota base.
 const GlobalSlashEnforcer = () => {
   const location = useLocation();
   useEffect(() => {
     const path = window.location.pathname;
-    if (!path.endsWith('/')) {
+    if (path === '/links') {
       window.history.replaceState(null, '', path + '/');
     }
   }, [location]); // Re-executa quando a localização muda.
