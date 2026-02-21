@@ -77,7 +77,7 @@ function Main() {
           return (
             <Section
               id={index}
-              key={index}
+              key={secao.title}
               title={secao.title}
               legend={secao.legend}
               className={secao.className}
@@ -91,6 +91,7 @@ function Main() {
         postalBox && (
           <Section
             id={-1}
+            key={"postal-box"}
             title={"Caixa postal"}
             legend={"Se você tem ou viu algo legal e quer enviar para o eskimo, mande através da nossa Caixa Postal!"}
             className={"postal-box"}
