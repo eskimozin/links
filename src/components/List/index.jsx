@@ -38,7 +38,7 @@ function List({className, id, type}) {
               }
             >
               <a target="_blank" rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
-                <img src={item.img.startsWith(".") ? ((pathname ? "." : "") + item.img) : item.img} alt={item.alt} className={item.imgStyle ? item.imgStyle : ''} loading="lazy"/>
+                <img src={item.img.startsWith("./") ? (pathname ? ".." : ".") + item.img.slice(1) : item.img} alt={item.alt} className={item.imgStyle ? item.imgStyle : ''} loading="lazy"/>
               </a>
               <a target="_blank" rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
                 {className === "social-list" ? <h3 className={"title"}>{item.nick}</h3> : <h3 className={"title"}>{renderText(item.name)}</h3>}
