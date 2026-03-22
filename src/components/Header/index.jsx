@@ -1,18 +1,18 @@
 import './index.css'
 import {contacts} from '../../data/contacts.js'
-import {useContext, useEffect, useState} from "react";
-import {ThemeContext} from "../AppContext/AppContext.jsx";
+import {useEffect, useState} from "react";
 import {useNavigate, useLocation, Link} from "react-router-dom";
 import LiveBadge from "../LiveBadge/index.jsx";
 
 import moment from "moment";
 import {OverlayTrigger, Tooltip} from "react-bootstrap";
+// Importação direta das imagens como no Next.js
+import { faviconImg, brainMadeImg } from '../../utils/images.js'
 
 moment.locale("America/Sao_Paulo")
 
 function Header() {
   const {mail} = contacts;
-  const {pathname} = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
   const show = useState(true);
@@ -93,7 +93,7 @@ function Header() {
             <div className={"d-block rounded-pill px-2 position-absolute top-50 text-body bg-white"} style={{left: "6rem"}}>
               <span className={"text-nowrap text-sml d-block d-none"} style={{margin: "0.125rem 0"}}>em hiato²</span>
             </div>
-            <img src={pathname ? "../img/favicon.png" : "./img/favicon.png"} alt="Imagem do Eskimozin"/>
+            <img src={faviconImg} alt="Imagem do Eskimozin"/>
           </Link>
         </div>
         <div
@@ -128,7 +128,7 @@ function Header() {
             }>
               <img
                 className={"bg-transparent p-0 m-0 rounded-0 object-fit-contain"}
-                src={pathname ? "../img/brain-made.svg" : "./img/brain-made.svg"}
+                src={brainMadeImg}
                 alt={"Logo da iniciativa \"Brain Made\" - projetos feitos por um humano"}
                 style={{background: "unset", padding: 0, margin: 0, width: "80px", height: "40px"}}
               />
