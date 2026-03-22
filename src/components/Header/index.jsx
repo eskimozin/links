@@ -1,7 +1,6 @@
 import './index.css'
 import {contacts} from '../../data/contacts.js'
-import {useContext, useEffect, useState} from "react";
-import {ThemeContext} from "../AppContext/AppContext.jsx";
+import {useEffect, useState} from "react";
 import {useNavigate, useLocation, Link} from "react-router-dom";
 import LiveBadge from "../LiveBadge/index.jsx";
 
@@ -14,7 +13,6 @@ moment.locale("America/Sao_Paulo")
 
 function Header() {
   const {mail} = contacts;
-  const {pathname} = useContext(ThemeContext);
   const location = useLocation();
   const navigate = useNavigate();
   const show = useState(true);

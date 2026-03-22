@@ -1,9 +1,8 @@
 import {Banner} from "../Banner/index.jsx";
 import {campaigns} from "../../../public/campaigns.js";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import {ThemeContext} from "../AppContext/AppContext.jsx";
 import {mentirasMedosMinhocasImg} from '../../utils/images.js';
 
 const convertDatetime = (datetime) => {
@@ -32,7 +31,6 @@ const sortedCampaings = (campaings) => {
 }
 
 const Campaings = () => {
-  const {pathname} = useContext(ThemeContext);
   const validCampaings = verifyIsValidCampaings(campaigns)
   const [show, setShow] = useState(true)
   const [visible, setVisible] = useState(true)

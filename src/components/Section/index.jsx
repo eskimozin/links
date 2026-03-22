@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import {List} from "../List";
 import './index.css'
-import {useContext} from "react";
-import {ThemeContext} from "../AppContext/AppContext.jsx";
 import {youtubeImg, oIncidente} from "../../utils/images.js";
 
 const renderText = (text) => {
@@ -16,7 +14,6 @@ const renderText = (text) => {
 };
 
 function Section({title, legend, className, id, link, children, sectionListType = ""}) {
-  const {pathname} = useContext(ThemeContext);
   const additionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
   
   return (
