@@ -1,17 +1,23 @@
 import './index.css'
 import PropTypes from "prop-types";
+import {
+  spotifyImg,
+  twitchImg,
+  discordImg,
+  youtubeImg
+} from '../../utils/images.js';
 
 function Banner({title, subtitle, link, legend, linkName}) {
   let linkImg = <></>
   
   if (linkName.toLowerCase().includes("spotify")) {
-    linkImg = <>&nbsp;<img src={"./img/spotify.png"} alt={"Logo do Spotify"} width={"16px"} height={"16px"}/></>
+    linkImg = <>&nbsp;<img src={spotifyImg} alt={"Logo do Spotify"} width={"16px"} height={"16px"}/></>
   } else if (linkName.toLowerCase().includes("twitch")) {
-    linkImg = <>&nbsp;<img src={"./img/twitch.jpg"} alt={"Logo da Twitch"} width={"16px"} height={"16px"}/></>
+    linkImg = <>&nbsp;<img src={twitchImg} alt={"Logo da Twitch"} width={"16px"} height={"16px"}/></>
   } else if (linkName.toLowerCase().includes("discord")) {
-    linkImg = <>&nbsp;<img src={"./img/discord.jpg"} alt={"Logo do Discord"} width={"16px"} height={"16px"}/></>
+    linkImg = <>&nbsp;<img src={discordImg} alt={"Logo do Discord"} width={"16px"} height={"16px"}/></>
   } else if (linkName.toLowerCase().includes("youtube")) {
-    linkImg = <>&nbsp;<img src={"./img/youtube.jpg"} alt={"Logo do YouTube"} width={"16px"} height={"16px"}/></>
+    linkImg = <>&nbsp;<img src={youtubeImg} alt={"Logo do YouTube"} width={"16px"} height={"16px"}/></>
   }
   
   const renderText = (text) => {

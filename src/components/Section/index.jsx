@@ -3,6 +3,7 @@ import {List} from "../List";
 import './index.css'
 import {useContext} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
+import {youtubeImg, oIncidente} from "../../utils/images.js";
 
 const renderText = (text) => {
   // Usa regex para encontrar todas as barras e as envolve em spans
@@ -30,8 +31,8 @@ function Section({title, legend, className, id, link, children, sectionListType 
         {["channel-list", "general-list incidente"].includes(className) ?
           <hgroup className={"title-channel-list"}>
             <h2>{title}</h2>
-            {className === "channel-list" && <img src={(pathname ? ".." : ".") + "/img/youtube.jpg"} loading="lazy" className={"badge-channel-list"} alt={"Icon do Youtube"}/>}
-            {className === "general-list incidente" && <img src={(pathname ? ".." : ".") + "/img/oincidente.jpg"} loading="lazy" className={"badge-channel-list"} alt={"Icon do Incidente"}/>}
+            {className === "channel-list" && <img src={youtubeImg} loading="lazy" className={"badge-channel-list"} alt={"Icon do Youtube"}/>}
+            {className === "general-list incidente" && <img src={oIncidente} loading="lazy" className={"badge-channel-list"} alt={"Icon do Incidente"}/>}
           </hgroup> : <h2 className={`${title.toLowerCase() === "lives na KICK".toLowerCase() ? "text-transform-normal" : ""}`}>{renderText(title)}</h2>
         }
         <p className={"text-muted text-balance"}>{renderText(legend)}</p>

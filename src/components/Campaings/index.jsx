@@ -4,6 +4,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {Image} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
+import {mentirasMedosMinhocasImg} from '../../utils/images.js';
 
 const convertDatetime = (datetime) => {
   if (!datetime) return null
@@ -96,7 +97,7 @@ const Campaings = () => {
                               rel={"noopener noreferrer"}
                               className={"my-3 text-decoration-none"}>
                               <div className={"text-white"}>
-                                <Image src={pathname ? "../img/mentiras-medos-minhocas.jpg" : "./img/mentiras-medos-minhocas.jpg"} className={"w-100 rounded-3"} style={{maxHeight: "350px"}} loading={"lazy"} alt={"Capa do álbum 'Mentiras, medos e minhocas do Lil Esk'"}/>
+                                <Image src={mentirasMedosMinhocasImg} className={"w-100 rounded-3"} style={{maxHeight: "350px"}} loading={"lazy"} alt={"Capa do álbum 'Mentiras, medos e minhocas do Lil Esk'"}/>
                                 <span className={"d-block text-balance text-white-50 lh-sm mt-3 mb-2"} style={{fontWeight: "300"}}>O retorno de Lil Esk</span>
                                 <h2 className={"fs-3"}>
                                   <span className={"d-block m-0 p-0 text-balance lh-sm mb-2 fw-medium"} style={{fontFamily: "'Inter Tight', 'Inter', sans-serif", fontSize: "inherit"}}>Novo álbum: Mentiras, medos e minhocas...</span>
