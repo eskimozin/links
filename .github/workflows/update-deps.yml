@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           # IMPORTANTE: Altere para a versão do Node.js que seu projeto utiliza.
-          node-version: '20'
+          node-version: '22'
           # Habilita o cache do npm para acelerar as instalações futuras.
           cache: 'npm'
 
