@@ -17,7 +17,7 @@
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
     "upgrade:deps": "npx npm-check-updates -i && npm install",
     "cypress": "npx cypress run",
-    "sync:version": "node sync-version.js"
+    "sync:version": "git pull && node sync-version.js"
   },
   "dependencies": {
     "aos": "^2.3.4",
