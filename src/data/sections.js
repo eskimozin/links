@@ -265,7 +265,7 @@ const sections = [
   },
   {
     title: "lives na KICK",
-    legend: "Agora as lives acontecem na KICK. Siga o eskimo lá e fique ligado!",
+    legend: "As lives acontecem na KICK. As segundas, quartas, sextas e sábados.",
     className: "general-list kick-section",
     link: "https://kick.com/eskimozin",
     listItems: [

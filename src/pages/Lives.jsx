@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'; // Importar o componente Form
 import {sections} from "../data/lives.js";
-import {useState, useEffect, useRef, useCallback} from "react"; // Importar useEffect
+import {useCallback, useEffect, useRef, useState} from "react"; // Importar useEffect
 
 function Lives() {
   const multiStreamSections = [...sections];
@@ -203,6 +203,7 @@ function Lives() {
             />
           ))
         }
+        
         <Link to={`/`}>
           <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver esses e os outros links</button>
         </Link>

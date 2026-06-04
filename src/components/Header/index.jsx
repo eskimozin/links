@@ -97,11 +97,10 @@ function Header() {
           </Link>
         </div>
         <div
-          className={"d-flex flex-wrap gap-2 align-items-center justify-content-center bg-transparent p-0 mx-auto rounded-0 w-auto"}
+          className={"d-flex flex-wrap gap-2 align-items-center justify-content-center bg-transparent p-0 mx-auto rounded-0 w-auto mt-3"}
           style={{background: "unset", padding: 0, margin: 0}}
         >
-          
-          <h1 className={"m-0 p-0"}>Eskimozin</h1>
+          <h1 className={"m-0 p-0"} style={{letterSpacing: -0.5}}>Eskimozin</h1>
           <span className={"text-white-50"}>|</span>
           <Link
             to={"https://brainmade.org/"}
