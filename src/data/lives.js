@@ -1,7 +1,7 @@
 const sections = [
   {
     title: "Onde as lives acontecem?",
-    legend: "Na Kick. As vezes na Twitch. Entre no nosso Discord e seja notificado sempre que tiver live!",
+    legend: "Na KICK. Entre no nosso Discord e seja notificado sempre que tiver live!",
     className: "general-list",
     link: "https://kick.com/eskimozin",
     img: "./img/kick.svg",

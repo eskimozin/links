@@ -204,7 +204,7 @@ function Lives() {
           ))
         }
         <Link to={`/`}>
-          <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button>
+          <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver esses e os outros links</button>
         </Link>
       </main>
     </>

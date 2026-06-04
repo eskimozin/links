@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 function YoutubeChannels() {
   const youtubeSection = sections.find(s => s.type === "youtube");
-
+  
   if (!youtubeSection) return null;
   
   return (
@@ -16,7 +16,9 @@ function YoutubeChannels() {
         className={youtubeSection.className}
         link={youtubeSection.link}
       />
-      <Link to={`/`}><button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver todos os outros links</button></Link>
+      <Link to={`/`}>
+        <button className={"btn btn-dark border-0 rounded-2 w-100"}>Ver esses e os outros links</button>
+      </Link>
     </main>
   )
 }

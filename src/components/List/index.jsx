@@ -1,9 +1,9 @@
+import './index.css'
+import {useContext} from "react";
 import {images} from '../../utils/images.js'
 import ProtoTypes from 'prop-types';
 import {sections as sectionGeneral} from '../../data/sections.js'
 import {sections as multiStreamSections} from '../../data/lives.js'
-import './index.css'
-import {useContext} from "react";
 import {ThemeContext} from "../AppContext/AppContext.jsx";
 
 // Função para processar imagens dinamicamente
@@ -61,30 +61,48 @@ function List({className, id, type}) {
   return (
     <ul className={className}>
       {
-        list.map((item, index) => {
-          return (
-            <li
-              key={index}
-              data-toggle="tooltip"
-              data-placement="top"
-              data-bs-custom-class="custom-tooltip"
-              title={
-                (item.title === undefined ? item.alt : item.title).toUpperCase() === "KICK" ?
-                  (item.title === undefined ? item.alt : item.title).toUpperCase() :
-                  item.title === undefined ? item.alt : item.title
-              }
-            >
-              <a target="_blank" className={"w-100"} rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
-                <div className={"d-flex justify-content-center align-items-center p-0 m-0 rounded-0 bg-transparent border-0"} style={{background: "unset"}}>
-                  <img src={getImageSrc(item.img, pathname)} alt={item.alt} className={'w-auto bg-transparent border-0 ' + (item.imgStyle ? item.imgStyle : '')} loading="lazy"/>
-                </div>
-              </a>
-              <a target="_blank" rel="noreferrer noopener" href={item.link} onClick={(e) => e.stopPropagation()}>
-                {className === "social-list" ? <h3 className={"title"}>{item.nick}</h3> : <h3 className={"title"}>{renderText(item.name)}</h3>}
-              </a>
-            </li>
-          )
-        })
+        list
+          .filter(s => s.visible)
+          .map((item, index) => {
+            return (
+              <li
+                key={index}
+                data-toggle="tooltip"
+                data-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                title={
+                  (item.title === undefined ? item.alt : item.title).toUpperCase() === "KICK" ?
+                    (item.title === undefined ? item.alt : item.title).toUpperCase() :
+                    item.title === undefined ? item.alt : item.title
+                }
+              >
+                <a
+                  target="_blank"
+                  className={"w-100"}
+                  rel="noreferrer noopener"
+                  href={item.link}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className={"d-flex justify-content-center align-items-center p-0 m-0 rounded-0 bg-transparent border-0"} style={{background: "unset"}}>
+                    <img src={getImageSrc(item.img, pathname)} alt={item.alt} className={'w-auto bg-transparent border-0 ' + (item.imgStyle ? item.imgStyle : '')} loading="lazy"/>
+                  </div>
+                </a>
+                
+                <a
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  href={item.link}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {className === "social-list" ? (
+                    <h3 className={"title"}>{item.nick}</h3>
+                  ) : (
+                    <h3 className={"title"}>{renderText(item.name)}</h3>
+                  )}
+                </a>
+              </li>
+            )
+          })
       }
     </ul>
   )
