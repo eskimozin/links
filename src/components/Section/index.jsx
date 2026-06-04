@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {List} from "../List";
 import './index.css'
-import {youtubeImg, oIncidente} from "../../utils/images.js";
+import {oIncidente, youtubeImg} from "../../utils/images.js";
 
 const renderText = (text) => {
   // Usa regex para encontrar todas as barras e as envolve em spans
@@ -17,11 +17,12 @@ function Section({title, legend, className, id, link, children, sectionListType 
   const additionalClassName = " " + (className.includes("donate-section") ? "donate-section cursor-pointer" : className.includes("kick-section") ? "kick-section cursor-pointer" : "");
   
   return (
-    <section className={"d-relative" + additionalClassName}
-             role={(className.includes("donate-section") || className.includes("kick-section")) ? "link" : "listitem"}
-             onClick={() => {
-               if (className.includes("donate-section") || className.includes("kick-section")) window.open(link, "_blank", "noopener noreferrer");
-             }}
+    <section
+      className={"d-relative" + additionalClassName}
+      role={(className.includes("donate-section") || className.includes("kick-section")) ? "link" : "listitem"}
+      onClick={() => {
+        if (className.includes("donate-section") || className.includes("kick-section")) window.open(link, "_blank", "noopener noreferrer");
+      }}
     >
       <div className={"d-absolute top-0 gradient-area"}></div>
       <div className={"d-flex justify-content-center align-items-center flex-column"}>

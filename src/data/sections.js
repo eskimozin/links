@@ -5,6 +5,7 @@ const sections = [
     className: "social-list",
     listItems: [
       {
+        visible: true,
         link: "https://twitter.com/eskimozinmorreu",
         nick: "@eskimozinmorreu",
         img: "./img/twitter.jpg",
@@ -12,6 +13,7 @@ const sections = [
         title: "Twitter"
       },
       {
+        visible: true,
         link: "https://www.instagram.com/eskimozin",
         nick: "@eskimozin",
         img: "./img/instagram.png",
@@ -19,6 +21,7 @@ const sections = [
         title: "Instagram"
       },
       {
+        visible: true,
         link: "https://www.tiktok.com/@eskimozinn",
         nick: "@eskimozinn",
         img: "./img/tiktok.jpg",
@@ -44,7 +47,7 @@ const sections = [
       },
       {
         order: 2,
-        visible: true,
+        visible: false,
         name: "r/eskimozin",
         link: "https://www.reddit.com/r/eskimozin/",
         img: "./img/reddit.png",
@@ -100,14 +103,16 @@ const sections = [
     listItems: [
       {
         order: 1,
+        visible: true,
         name: "eskimozincraft",
         link: "https://www.youtube.com/@eskimozincraft",
-        img: "https://yt3.googleusercontent.com/fmt2ghGErP04XGzCJmOLdnQ5S6FBGijwnKqH-nUYfM2BUi9SEzYpRyYU9cUDNJQJ24K78PfKqmE=s160-c-k-c0x00ffffff-no-rj",
+        img: "./img/youtube-eskimozincraft.jpg",
         alt: "Foto de perfil do canal Eskimozincraft",
         title: "eskimozincraft"
       },
       {
         order: 4,
+        visible: true,
         name: "eskimozin",
         link: "https://www.youtube.com/@eskimozin",
         img: "./img/favicon.png",
@@ -116,6 +121,7 @@ const sections = [
       },
       {
         order: 3,
+        visible: true,
         name: "eskimozinplays",
         link: "https://www.youtube.com/@eskimozinplays",
         img: "./img/favicon.png",
@@ -124,17 +130,19 @@ const sections = [
       },
       {
         order: 3,
+        visible: true,
         name: "noite dos jogos tristes - com o Johan",
         link: "https://www.youtube.com/@NoitedosJogosTristes",
-        img: "https://yt3.googleusercontent.com/U-tvN2-vtcBGmISLyOH2XdUarkCsieI0ngUQepHTyWW9Mb4rZyfjele6pclGJLy1m_GF0QV59g=s160-c-k-c0x00ffffff-no-rj",
+        img: "./img/youtube-noites-jogos-tristes.jpg",
         alt: "Foto de perfil do canal Noite dos Jogos Tristes",
         title: "noite dos jogos tristes"
       },
       {
         order: 4,
+        visible: true,
         name: "lil esk",
         link: "https://www.youtube.com/@lilesk",
-        img: "https://yt3.googleusercontent.com/v-Q0UZjP-NW9SGoVAJim6uY60Zby_0MKbtZULx_ixzDX_bHRijcq8lfQ6QtyH2hBVBdU5MVUNX8=s160-c-k-c0x00ffffff-no-rj",
+        img: "./img/youtube-lilesk.jpg",
         alt: "Foto de perfil do canal de músicas do eskimo",
         title: "Lil Esk"
       },
@@ -183,7 +191,7 @@ const sections = [
       },
       {
         order: 4,
-        visible: true,
+        visible: false,
         name: "r/incidente",
         link: "https://www.reddit.com/r/incidente",
         img: "./img/reddit.png",
@@ -229,7 +237,7 @@ const sections = [
     ]
   },
   {
-    title: "apoie mandando din din",
+    title: "apoie",
     legend: "Se puder, mande um donate para o pobrezin. Os donates enviados durante as lives aparecem na transmissão.",
     className: "general-list donate-section",
     link: "https://livepix.gg/eskimozin",
@@ -257,7 +265,7 @@ const sections = [
   },
   {
     title: "lives na KICK",
-    legend: "Agora as lives acontecem na Kick. Siga o eskimo lá e fique ligado!",
+    legend: "As lives acontecem na KICK. As segundas, quartas, sextas e sábados.",
     className: "general-list kick-section",
     link: "https://kick.com/eskimozin",
     listItems: [

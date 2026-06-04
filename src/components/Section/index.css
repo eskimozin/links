@@ -94,8 +94,8 @@ section.kick-section {
     div:last-child {
         border-radius: 8px;
 
-        background: #80e009;
-        background: radial-gradient(circle at center, #80e009, #03404a);
+        background: #6ba524;
+        background: radial-gradient(circle at center, #6ba524, #03404a);
         background-size: 100% 100%;
         animation: gradientPulse 2.5s ease-in-out infinite;
         border: 1px solid #FFFFFF25;

@@ -73,15 +73,15 @@ function Main() {
           if (a.title === titleMatch && b.title.toLowerCase() !== titleMatch) return -1; // a vem primeiro
           if (a.title !== titleMatch && b.title.toLowerCase() === titleMatch) return 1;  // b vem primeiro
           return 0;
-        })].map(function (secao, index) {
+        })].map(function (section, index) {
           return (
             <Section
               id={index}
-              key={secao.title}
-              title={secao.title}
-              legend={secao.legend}
-              className={secao.className}
-              link={secao.link}
+              key={section.title}
+              title={section.title}
+              legend={section.legend}
+              className={section.className}
+              link={section.link}
             />
           )
         })
