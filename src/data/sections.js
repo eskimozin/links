@@ -240,16 +240,17 @@ const sections = [
     title: "apoie",
     legend: "Se puder, mande um donate para o pobrezin. Os donates enviados durante as lives aparecem na transmissão.",
     className: "general-list donate-section",
-    link: "https://livepix.gg/eskimozin",
+    link: "https://pixie.gg/eskimozin",
     listItems: [
       {
         order: 1,
         visible: true,
-        name: "live pix",
-        link: "https://livepix.gg/eskimozin",
-        img: "./img/live-pix.png",
-        alt: "Logo do LivePix",
-        title: "Live Pix"
+        name: "Pixie",
+        link: "https://pixie.gg/eskimozin",
+        img: "./img/pixie.svg",
+        imgStyle: "w-100",
+        alt: "Logo do Pixie",
+        title: "Pixie"
       },
       {
         order: 2,
