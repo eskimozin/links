@@ -9,7 +9,8 @@ function getGitTags() {
       .split("\n")
       .map(t => t.trim())
       .filter(Boolean)
-      .filter(t => /^\d+\.\d+\.\d+$/.test(t));
+      .filter(t => /^v?\d+\.\d+\.\d+$/.test(t))
+      .map(t => t.replace(/^v/, ''));
   } catch (e) {
     console.warn("Failed to read git tags:", e.message);
     return [];
