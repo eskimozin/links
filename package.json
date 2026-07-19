@@ -15,7 +15,7 @@
     "test": "cypress run",
     "update": "npm update",
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
-    "upgrade:deps": "npx npm-check-updates -i && npm install",
+    "upgrade:deps": "npx npm-check-updates -u && npm install",
     "cypress": "npx cypress run",
     "sync:version": "git pull && node sync-version.js"
   },
