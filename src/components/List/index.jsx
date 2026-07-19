@@ -27,6 +27,7 @@ const getImageSrc = (imgPath) => {
     "instagram": images.instagram,
     "kick": images.kick,
     "live-pix": images.livePix,
+    "pixie": images.pixie,
     "mentiras-medos-minhocas": images.mentirasMedosMinhocas,
     "paypal": images.paypal,
     "reddit": images.reddit,

@@ -20,6 +20,7 @@ import twitchImg from '../../public/img/twitch.jpg'
 import twitterImg from '../../public/img/twitter.jpg'
 import youtubeImg from '../../public/img/youtube.jpg'
 import oIncidente from '../../public/img/oincidente.jpg';
+import pixie from '../../public/img/pixie.svg';
 
 export {
   faviconImg,
@@ -40,7 +41,8 @@ export {
   twitchImg,
   twitterImg,
   youtubeImg,
-  oIncidente
+  oIncidente,
+  pixie
 }
 
 export const images = {
@@ -62,5 +64,8 @@ export const images = {
   twitch: twitchImg,
   twitter: twitterImg,
   youtube: youtubeImg,
-  oIncidente: oIncidente
+  oIncidente: oIncidente,
+  pixie: pixie
 }
+
+// TODO - adicionar imagens de canais do Youtube aqui
