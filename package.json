@@ -13,7 +13,7 @@
     "deploy": "node register.build.js && vite build && gh-pages -d dist",
     "cy:run": "cypress run",
     "test": "cypress run",
-    "update": "npm update",
+    "update": "npm update --legacy-peer-deps",
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
     "upgrade:deps": "npx npm-check-updates -u && npm install --legacy-peer-deps",
     "cypress": "npx cypress run",
