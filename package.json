@@ -2,7 +2,7 @@
   "name": "links",
   "description": "Links de redes sociais, canais e de contato do Eskimozin",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -15,7 +15,7 @@
     "test": "cypress run",
     "update": "npm update",
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
-    "upgrade:deps": "npx npm-check-updates -u && npm install",
+    "upgrade:deps": "npx npm-check-updates -u && npm install --legacy-peer-deps",
     "cypress": "npx cypress run",
     "sync:version": "git pull && node sync-version.js"
   },
@@ -52,7 +52,7 @@
     "vite": "^8.1.5"
   },
   "allowScripts": {
-    "cypress@15.16.0": true,
+    "cypress@15.18.1": true,
     "esbuild@0.21.5": true
   }
 }
