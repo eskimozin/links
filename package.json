@@ -2,7 +2,7 @@
   "name": "links",
   "description": "Links de redes sociais, canais e de contato do Eskimozin",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
     "upgrade:deps": "npx npm-check-updates -u && npm install --legacy-peer-deps",
     "cypress": "npx cypress run",
-    "sync:version": "git pull && node sync-version.js"
+    "sync:version": "git pull origin main && node sync-version.js"
   },
   "dependencies": {
     "@semantic-release/changelog": "^7.0.0",
