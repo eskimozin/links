@@ -2,7 +2,7 @@
   "name": "links",
   "description": "Links de redes sociais, canais e de contato do Eskimozin",
   "private": true,
-  "version": "1.2.0",
+  "version": "1.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,7 +17,7 @@
     "ci:test": "start-server-and-test dev http://localhost:5173 test",
     "upgrade:deps": "npx npm-check-updates -u && npm install --legacy-peer-deps",
     "cypress": "npx cypress run",
-    "sync:version": "git pull && node sync-version.js"
+    "sync:version": "git pull origin main && node sync-version.js"
   },
   "dependencies": {
     "@semantic-release/changelog": "^7.0.0",
@@ -34,25 +34,25 @@
     "react": "^19.2.8",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.2"
+    "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
-    "@vitejs/plugin-react": "^6.1.0",
-    "cypress": "^15.20.1",
+    "@vitejs/plugin-react": "^6.1.1",
+    "cypress": "^15.21.1",
     "eslint": "^10.9.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.4",
+    "eslint-plugin-react-refresh": "^0.5.5",
     "gh-pages": "^6.3.0",
     "globals": "^17.11.0",
-    "start-server-and-test": "^3.0.11",
+    "start-server-and-test": "^3.0.12",
     "vite": "^8.2.2"
   },
   "allowScripts": {
-    "cypress@15.18.1": true,
-    "esbuild@0.21.5": true
+    "esbuild@0.21.5": true,
+    "cypress@15.21.1": true
   }
 }
