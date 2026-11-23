@@ -146,6 +146,15 @@ const sections = [
         alt: "Foto de perfil do canal de músicas do eskimo",
         title: "Lil Esk"
       },
+      {
+        order: 5,
+        visible: true,
+        name: "clipes do eskimozin",
+        link: "https://www.youtube.com/@eskimozinlives",
+        img: "./img/favicon.png",
+        alt: "Foto de perfil do clipes do eskimozin",
+        title: "Clipes do eskimozin"
+      }
     ]
   },
   {
