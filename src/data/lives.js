@@ -8,7 +8,7 @@ const sections = [
     listItems: [
       {
         order: 1,
-        visible: true,
+        visible: false,
         name: "twitch.tv/eskimozin",
         link: "https://www.twitch.tv/eskimozin",
         img: "./img/twitch.jpg",

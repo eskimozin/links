@@ -31,7 +31,7 @@ const sections = [
     ]
   },
   {
-    title: "comunidade e parceiros",
+    title: "comunidade e tal",
     legend: "Acompanhe a comunidade e o eskimo em outras plataformas",
     className: "social-list community",
     listItems: [
@@ -76,7 +76,7 @@ const sections = [
       {
         order: 5,
         visible: true,
-        name: "canal na chute",
+        name: "canal na KICK",
         link: "https://kick.com/eskimozin",
         img: "./img/kick.svg",
         imgStyle: "w-100",
@@ -115,7 +115,7 @@ const sections = [
         visible: true,
         name: "eskimozin",
         link: "https://www.youtube.com/@eskimozin",
-        img: "./img/favicon.png",
+        img: "./img/youtube-eskimozin.jpg",
         alt: "Foto de perfil do canal Eskimozin",
         title: "eskimozin"
       },
@@ -124,7 +124,7 @@ const sections = [
         visible: true,
         name: "eskimozinplays",
         link: "https://www.youtube.com/@eskimozinplays",
-        img: "./img/favicon.png",
+        img: "./img/youtube-eskimozingameplayshd.jpg",
         alt: "Foto de perfil do canal Eskimozin Gameplays",
         title: "eskimozinplays"
       },
@@ -149,11 +149,11 @@ const sections = [
       {
         order: 5,
         visible: true,
-        name: "clipes do eskimozin",
+        name: "lives do eskimozin",
         link: "https://www.youtube.com/@eskimozinlives",
         img: "./img/favicon.png",
-        alt: "Foto de perfil do clipes do eskimozin",
-        title: "Clipes do eskimozin"
+        alt: "Foto de perfil do lives do eskimozin",
+        title: "Lives do eskimozin"
       }
     ]
   },
@@ -208,6 +208,15 @@ const sections = [
         alt: "Logo do Reddit",
         title: "Reddit do incidente"
       },
+      {
+        order: 5,
+        visible: true,
+        name: "site do incidas",
+        link: "https://incidente.gg/",
+        img: "./img/site-incidente.png",
+        alt: "Logo do site do incidente",
+        title: "Site do incidente"
+      }
     ]
   },
   {
@@ -227,7 +236,7 @@ const sections = [
       {
         order: 2,
         visible: true,
-        name: "review de jogos",
+        name: "backloggd",
         link: "https://www.backloggd.com/u/eskimozin",
         img: "./img/back.png",
         alt: "Logo da Backloggd",
@@ -236,13 +245,23 @@ const sections = [
       {
         order: 3,
         visible: true,
-        name: "twitter dois",
+        name: "bluesky",
         link: "https://bsky.app/profile/eskimozin.bsky.social",
         img: "./img/bsky.png",
         imgStyle: "w-100",
         alt: "Logo do Bluesky",
         title: "Bluesky"
       },
+      {
+        order: 4,
+        visible: true,
+        name: "site oficial",
+        link: "https://incidente.gg/eskimozin",
+        img: "./img/site-eskimozin.png",
+        imgStyle: "w-100 rounded-circle",
+        alt: "Logo da Site Oficial",
+        title: "Site Oficial"
+      }
     ]
   },
   {
