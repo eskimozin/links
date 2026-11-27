@@ -8,7 +8,7 @@ export default function BaseComponents({children}) {
   useEffect(() => {
     try {
       // Verificar se #[id] existe e rolar a página até ele
-      if (location.hash && (location.pathname !== "lines") && !location.pathname?.split("/")?.[1]?.match(/\d/)) {
+      if (location.hash && !location.hash.startsWith('#/') && (location.pathname !== "lines") && !location.pathname?.split("/")?.[1]?.match(/\d/)) {
         const id = location.hash.replace('#', '')
         const element = document.getElementById(id)
         if (element) window.scrollTo({top: element.offsetTop, behavior: 'smooth'})
